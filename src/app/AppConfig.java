@@ -1,11 +1,16 @@
 package app;
 
+import java.awt.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -43,9 +48,12 @@ public class AppConfig {
 	}
 	
 	public static boolean INITIALIZED = false;
-	public static int BOOTSTRAP_PORT;
+	public static int BOOTSTRAP_PORT;//short
+	public static String BOOTSTRAP_IP;
+	public static int WEAK_LIMIT;
+	public static int STRONG_LIMIT;
 	public static int SERVENT_COUNT;
-	
+	public static ArrayList<Job> jobList;
 	public static ChordState chordState;
 	
 	/**
@@ -85,7 +93,7 @@ public class AppConfig {
 			timestampedErrorPrint("Problem reading bootstrap_port. Exiting...");
 			System.exit(0);
 		}
-		
+
 		try {
 			SERVENT_COUNT = Integer.parseInt(properties.getProperty("servent_count"));
 		} catch (NumberFormatException e) {
@@ -103,7 +111,72 @@ public class AppConfig {
 			timestampedErrorPrint("Problem reading chord_size. Must be a number that is a power of 2. Exiting...");
 			System.exit(0);
 		}
-		
+
+		//BOOTSTRAP_IP = properties.getProperty("bs.ip_address");
+		String checkIp = "";
+		try {
+			checkIp = String.valueOf(InetAddress.getLocalHost().getHostAddress());
+			BOOTSTRAP_IP = String.valueOf(InetAddress.getLocalHost().getHostAddress());
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		}
+
+		if(checkIp == null){
+			AppConfig.timestampedErrorPrint("Problem reading IP address from host machine");
+			System.exit(0);
+		}
+
+		try {
+			WEAK_LIMIT = Integer.parseInt(properties.getProperty("weak_limit"));
+		} catch (NumberFormatException e) {
+			timestampedErrorPrint("Problem reading weak_limit. Exiting...");
+			System.exit(0);
+		}
+
+		try {
+			STRONG_LIMIT = Integer.parseInt(properties.getProperty("strong_limit"));
+		} catch (NumberFormatException e) {
+			timestampedErrorPrint("Problem reading strong_limit. Exiting...");
+			System.exit(0);
+		}
+
+		int jobs = 0;
+		try {
+			jobs = Integer.parseInt(properties.getProperty("jobs"));
+		} catch (NumberFormatException e) {
+			timestampedErrorPrint("Problem reading number of jobs. Exiting...");
+			System.exit(0);
+		}
+
+		for(int i = 1; i < jobs; i++){
+			try {
+				String name = properties.getProperty("job"+i+".name");
+				int n = Integer.parseInt(properties.getProperty("job" + i + ".n"));
+				if (n < 3 || n > 10) {
+					timestampedErrorPrint("Number of points must be between 3 and 10. Exiting...");
+					System.exit(0);
+				}
+				double p = Integer.parseInt(properties.getProperty("job"+i+".p"));
+				if(p < 0 || p > 1){
+					timestampedErrorPrint("Distance must be between 0 and 1. Exiting...");
+					System.exit(0);
+				}
+				int w = Integer.parseInt(properties.getProperty("job"+i+".w"));
+				int h = Integer.parseInt(properties.getProperty("job"+i+".h"));
+				String[] a = properties.getProperty("job"+i+".a").split(",");
+				List<Point> aa = new ArrayList<>();
+				for(int j = 0; j < a.length; j+=2){
+					aa.add(new Point(Integer.parseInt(a[j]), Integer.parseInt(a[j+1])));
+				}
+
+				Job job = new Job(name, n, p, w, h, aa);
+				jobList.add(job); //ako budem radio vise poslova
+			} catch (NumberFormatException e) {
+				timestampedErrorPrint("Problems reading config for job" + i + ". Exiting...");
+				System.exit(0);
+			}
+		}
+
 		String portProperty = "servent"+serventId+".port";
 		
 		int serventPort = -1;
@@ -115,7 +188,8 @@ public class AppConfig {
 			System.exit(0);
 		}
 		
-		myServentInfo = new ServentInfo("localhost", serventPort);
+		//myServentInfo = new ServentInfo("localhost", serventPort);
+		myServentInfo = new ServentInfo(BOOTSTRAP_IP, serventPort);
 	}
 	
 }

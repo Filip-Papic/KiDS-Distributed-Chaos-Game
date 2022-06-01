@@ -11,43 +11,45 @@ import servent.message.util.MessageUtil;
 
 public class ServentInitializer implements Runnable {
 
-	private int getSomeServentPort() {
+	private String getSomeServentPort() {
 		int bsPort = AppConfig.BOOTSTRAP_PORT;
 		
-		int retVal = -2;
+		String retVal = "err";
 		
 		try {
-			Socket bsSocket = new Socket("localhost", bsPort);
+			//Socket bsSocket = new Socket("localhost", bsPort);
+			Socket bsSocket = new Socket(AppConfig.BOOTSTRAP_IP, bsPort);
 			
 			PrintWriter bsWriter = new PrintWriter(bsSocket.getOutputStream());
-			bsWriter.write("Hail\n" + AppConfig.myServentInfo.getListenerPort() + "\n");
+			bsWriter.write("Hail\n" + AppConfig.myServentInfo.getIpAddress() + ":" + AppConfig.myServentInfo.getListenerPort() + "\n");
+			//bsWriter.write("Hail\n" + AppConfig.BOOTSTRAP_IP + ":" + AppConfig.myServentInfo.getListenerPort() + "\n");
 			bsWriter.flush();
 			
 			Scanner bsScanner = new Scanner(bsSocket.getInputStream());
-			retVal = bsScanner.nextInt();
+			retVal = bsScanner.nextLine();
 			
 			bsSocket.close();
-		} catch (UnknownHostException e) {
-			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		return retVal;
 	}
 	
 	@Override
 	public void run() {
-		int someServentPort = getSomeServentPort();
-		
-		if (someServentPort == -2) {
+		String someServentPort = getSomeServentPort();
+		System.out.println(someServentPort);
+		int port = Integer.parseInt(someServentPort.split(":")[1]);
+
+		if (someServentPort.equals("err")) {
 			AppConfig.timestampedErrorPrint("Error in contacting bootstrap. Exiting...");
 			System.exit(0);
 		}
-		if (someServentPort == -1) { //bootstrap gave us -1 -> we are first
+		if (port == -1) { //bootstrap gave us -1 -> we are first
 			AppConfig.timestampedStandardPrint("First node in Chord system.");
 		} else { //bootstrap gave us something else - let that node tell our successor that we are here
-			NewNodeMessage nnm = new NewNodeMessage(AppConfig.myServentInfo.getListenerPort(), someServentPort);
+			NewNodeMessage nnm = new NewNodeMessage(AppConfig.myServentInfo.getListenerPort(), port);
 			MessageUtil.sendMessage(nnm);
 		}
 	}

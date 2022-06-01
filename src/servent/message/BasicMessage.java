@@ -3,6 +3,7 @@ package servent.message;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import app.AppConfig;
 import app.ChordState;
 
 /**
@@ -19,7 +20,7 @@ public class BasicMessage implements Message {
 	private final int senderPort;
 	private final int receiverPort;
 	private final String messageText;
-	
+	private String recieverIP;
 	//This gives us a unique id - incremented in every natural constructor.
 	private static AtomicInteger messageCounter = new AtomicInteger(0);
 	private final int messageId;
@@ -54,7 +55,8 @@ public class BasicMessage implements Message {
 	
 	@Override
 	public String getReceiverIpAddress() {
-		return "localhost";
+		return recieverIP;
+		//return "localhost";
 	}
 	
 	@Override

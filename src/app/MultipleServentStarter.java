@@ -73,6 +73,10 @@ public class MultipleServentStarter {
 		Process bsProcess = null;
 		ProcessBuilder bsBuilder = new ProcessBuilder("java", "-cp", "out\\production\\KiDS-vezbe9-Sofija", "app.BootstrapServer", String.valueOf(AppConfig.BOOTSTRAP_PORT));
 		try {
+			//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!asdasdasdasdasdasdasdasdasd
+			bsBuilder.redirectOutput(new File(testName + "/bs.txt"));//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			bsBuilder.redirectError(new File(testName + "/bs.txt"));
+			//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!asdasdasdasdasdasdasdasdasd
 			bsProcess = bsBuilder.start();
 		} catch (IOException e1) {
 			e1.printStackTrace();

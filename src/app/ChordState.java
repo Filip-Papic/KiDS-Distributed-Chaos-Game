@@ -83,20 +83,23 @@ public class ChordState {
 	 */
 	public void init(WelcomeMessage welcomeMsg) {
 		//set a temporary pointer to next node, for sending of update message
-		successorTable[0] = new ServentInfo("localhost", welcomeMsg.getSenderPort());
+		//successorTable[0] = new ServentInfo("localhost", welcomeMsg.getSenderPort());//???
+		successorTable[0] = new ServentInfo(AppConfig.BOOTSTRAP_IP, welcomeMsg.getSenderPort());//???
 		this.valueMap = welcomeMsg.getValues();
 		
 		//tell bootstrap this node is not a collider
 		try {
-			Socket bsSocket = new Socket("localhost", AppConfig.BOOTSTRAP_PORT);
-			
+			Socket bsSocket = new Socket(AppConfig.BOOTSTRAP_IP, AppConfig.BOOTSTRAP_PORT);//!!!
+			//Socket bsSocket = new Socket("localhost", AppConfig.BOOTSTRAP_PORT);//!!!
+
 			PrintWriter bsWriter = new PrintWriter(bsSocket.getOutputStream());
-			bsWriter.write("New\n" + AppConfig.myServentInfo.getListenerPort() + "\n");
+
+			bsWriter.write("New\n" + AppConfig.myServentInfo.getIpAddress() + ":" + AppConfig.myServentInfo.getListenerPort() + "\n");
+			//bsWriter.write("New\n" + AppConfig.BOOTSTRAP_IP + ":" + AppConfig.myServentInfo.getListenerPort() + "\n");
+			//bsWriter.write("New\n" + AppConfig.myServentInfo.getListenerPort() + "\n");
 			
 			bsWriter.flush();
 			bsSocket.close();
-		} catch (UnknownHostException e) {
-			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

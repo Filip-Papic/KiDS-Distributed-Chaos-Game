@@ -2,9 +2,7 @@ package app;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.net.SocketTimeoutException;
+import java.net.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -13,8 +11,17 @@ import java.util.Scanner;
 public class BootstrapServer {
 
 	private volatile boolean working = true;
-	private List<Integer> activeServents;
-	
+	private List<String> activeServents;
+	private String ipAddress;
+
+	{
+		try {
+			ipAddress = String.valueOf(InetAddress.getLocalHost().getHostAddress().toString());
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		}
+	}
+
 	private class CLIWorker implements Runnable {
 		@Override
 		public void run() {
@@ -73,17 +80,21 @@ public class BootstrapServer {
 				 * or -1 if he is the first one.
 				 */
 				if (message.equals("Hail")) {
-					int newServentPort = socketScanner.nextInt();
-					
-					System.out.println("got " + newServentPort);
+					String[] info = socketScanner.nextLine().split(":");
+					String newServentIp = info[0];
+					int newServentPort = Integer.parseInt(info[1]);
+					String newServentInfo = newServentIp + ":" + newServentPort;
+
+					System.out.println("got " + newServentIp + ":" + newServentPort);
 					PrintWriter socketWriter = new PrintWriter(newServentSocket.getOutputStream());
-					
-					if (activeServents.size() == 0) {
-						socketWriter.write(String.valueOf(-1) + "\n");
-						activeServents.add(newServentPort); //first one doesn't need to confirm
+
+					if (activeServents.size() == 0) {//bootstrap salje i ip adresu i port
+						//socketWriter.write(String.valueOf(-1) + "\n");
+						socketWriter.write("-1"+ ":" + String.valueOf(-1) + "\n");
+						activeServents.add(newServentInfo); //first one doesn't need to confirm
 					} else {
-						int randServent = activeServents.get(rand.nextInt(activeServents.size()));
-						socketWriter.write(String.valueOf(randServent) + "\n");
+						String randServent = activeServents.get(rand.nextInt(activeServents.size()));
+						socketWriter.write(randServent.split(":")[0] + ":" + randServent.split(":")[1] + "\n");
 					}
 					
 					socketWriter.flush();
@@ -92,11 +103,14 @@ public class BootstrapServer {
 					/**
 					 * When a servent is confirmed not to be a collider, we add him to the list.
 					 */
-					int newServentPort = socketScanner.nextInt();
-					
-					System.out.println("adding " + newServentPort);
-					
-					activeServents.add(newServentPort);
+					String[] info = socketScanner.nextLine().split(":");
+					String newServentIp = info[0];
+					int newServentPort = Integer.parseInt(info[1]);
+					String newServentInfo = newServentIp + ":" + newServentPort;
+
+					System.out.println("adding " + newServentInfo);
+
+					activeServents.add(newServentInfo);
 					newServentSocket.close();
 				}
 				
