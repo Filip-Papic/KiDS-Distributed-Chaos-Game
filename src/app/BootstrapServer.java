@@ -54,7 +54,7 @@ public class BootstrapServer {
 			listenerSocket = new ServerSocket(bsPort);
 			listenerSocket.setSoTimeout(1000);
 		} catch (IOException e1) {
-			AppConfig.timestampedErrorPrint("Problem while opening listener socket.");
+			AppConfig.timestampedErrorPrint("BOOTSTRAP: Problem while opening listener socket.");
 			System.exit(0);
 		}
 		
@@ -85,7 +85,7 @@ public class BootstrapServer {
 					int newServentPort = Integer.parseInt(info[1]);
 					String newServentInfo = newServentIp + ":" + newServentPort;
 
-					System.out.println("got " + newServentIp + ":" + newServentPort);
+					System.out.println("BOOTSTRAP: got " + newServentIp + ":" + newServentPort);
 					PrintWriter socketWriter = new PrintWriter(newServentSocket.getOutputStream());
 
 					if (activeServents.size() == 0) {//bootstrap salje i ip adresu i port
@@ -108,12 +108,31 @@ public class BootstrapServer {
 					int newServentPort = Integer.parseInt(info[1]);
 					String newServentInfo = newServentIp + ":" + newServentPort;
 
-					System.out.println("adding " + newServentInfo);
+					System.out.println("BOOTSTRAP: adding " + newServentInfo);
 
 					activeServents.add(newServentInfo);
 					newServentSocket.close();
+				} else if (message.equals("Bye")) {
+					/**
+					 * Removing servents from the list
+					 */
+					String[] info = socketScanner.nextLine().split(":");
+					String serventIp = info[0];
+					int serventPort = Integer.parseInt(info[1]);
+					String newServentInfo = serventIp + ":" + serventPort;
+
+					System.out.println("BOOTSTRAP: removing " + serventIp + ":" + serventPort);
+					PrintWriter socketWriter = new PrintWriter(newServentSocket.getOutputStream());
+
+					if (activeServents.size() == 0) {
+						System.out.println("BOOTSTRAP: no nodes to remove!!!");
+					} else {
+						activeServents.remove(newServentInfo);
+					}
+
+					socketWriter.flush();
+					newServentSocket.close();
 				}
-				
 			} catch (SocketTimeoutException e) {
 				
 			} catch (IOException e) {
@@ -127,18 +146,18 @@ public class BootstrapServer {
 	 */
 	public static void main(String[] args) {
 		if (args.length != 1) {
-			AppConfig.timestampedErrorPrint("Bootstrap started without port argument.");
+			AppConfig.timestampedErrorPrint("BOOTSTRAP: Bootstrap started without port argument.");
 		}
 		
 		int bsPort = 0;
 		try {
 			bsPort = Integer.parseInt(args[0]);
 		} catch (NumberFormatException e) {
-			AppConfig.timestampedErrorPrint("Bootstrap port not valid: " + args[0]);
+			AppConfig.timestampedErrorPrint("BOOTSTRAP: Bootstrap port not valid: " + args[0]);
 			System.exit(0);
 		}
 		
-		AppConfig.timestampedStandardPrint("Bootstrap server started on port: " + bsPort);
+		AppConfig.timestampedStandardPrint("BOOTSTRAP: Bootstrap server started on port: " + bsPort);
 		
 		BootstrapServer bs = new BootstrapServer();
 		bs.doBootstrap(bsPort);

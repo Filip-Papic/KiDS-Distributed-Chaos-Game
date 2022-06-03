@@ -45,4 +45,16 @@ public class Job implements Serializable {
     public List<Point> getJobCoordinates() {
         return jobCoordinates;
     }
+
+    @Override
+    public String toString() {
+        return "Job{" +
+                "jobName='" + jobName + '\'' +
+                ", jobPointNumber=" + jobPointNumber +
+                ", jobDistance=" + jobDistance +
+                ", jobWidth=" + jobWidth +
+                ", jobHeight=" + jobHeight +
+                ", jobCoordinates=" + jobCoordinates +
+                '}';
+    }
 }

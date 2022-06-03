@@ -6,13 +6,7 @@ import java.util.Scanner;
 
 import app.AppConfig;
 import app.Cancellable;
-import cli.command.CLICommand;
-import cli.command.DHTGetCommand;
-import cli.command.DHTPutCommand;
-import cli.command.InfoCommand;
-import cli.command.PauseCommand;
-import cli.command.StopCommand;
-import cli.command.SuccessorInfo;
+import cli.command.*;
 import servent.SimpleServentListener;
 
 /**
@@ -38,21 +32,27 @@ public class CLIParser implements Runnable, Cancellable {
 	private volatile boolean working = true;
 	
 	private final List<CLICommand> commandList;
-	
+	private Scanner sc;
 	public CLIParser(SimpleServentListener listener) {
 		this.commandList = new ArrayList<>();
-		
+		this.sc = new Scanner(System.in);
 		commandList.add(new InfoCommand());
 		commandList.add(new PauseCommand());
 		commandList.add(new SuccessorInfo());
 		commandList.add(new DHTGetCommand());
 		commandList.add(new DHTPutCommand());
 		commandList.add(new StopCommand(this, listener));
+		commandList.add(new QuitCommand(this, listener));
+		commandList.add(new StartCommand());
 	}
-	
+
+	public Scanner getSc() {
+		return sc;
+	}
+
 	@Override
 	public void run() {
-		Scanner sc = new Scanner(System.in);
+		sc = new Scanner(System.in);
 		
 		while (working) {
 			String commandLine = sc.nextLine();

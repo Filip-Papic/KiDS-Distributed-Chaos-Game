@@ -46,15 +46,17 @@ public class AppConfig {
 		
 		System.err.println(timeFormat.format(now) + " - " + message);
 	}
-	
+
 	public static boolean INITIALIZED = false;
 	public static int BOOTSTRAP_PORT;//short
 	public static String BOOTSTRAP_IP;
 	public static int WEAK_LIMIT;
 	public static int STRONG_LIMIT;
 	public static int SERVENT_COUNT;
-	public static ArrayList<Job> jobList;
+	public static ArrayList<Job> jobList = new ArrayList<>();
+	public static ArrayList<String> jobNames = new ArrayList<>();
 	public static ChordState chordState;
+	public static Boolean newJobFlag = false;
 	
 	/**
 	 * Reads a config file. Should be called once at start of app.
@@ -149,14 +151,14 @@ public class AppConfig {
 		}
 
 		for(int i = 1; i < jobs; i++){
-			try {
+			//try {
 				String name = properties.getProperty("job"+i+".name");
 				int n = Integer.parseInt(properties.getProperty("job" + i + ".n"));
 				if (n < 3 || n > 10) {
 					timestampedErrorPrint("Number of points must be between 3 and 10. Exiting...");
 					System.exit(0);
 				}
-				double p = Integer.parseInt(properties.getProperty("job"+i+".p"));
+				double p = Float.parseFloat(properties.getProperty("job"+i+".p"));
 				if(p < 0 || p > 1){
 					timestampedErrorPrint("Distance must be between 0 and 1. Exiting...");
 					System.exit(0);
@@ -170,11 +172,12 @@ public class AppConfig {
 				}
 
 				Job job = new Job(name, n, p, w, h, aa);
-				jobList.add(job); //ako budem radio vise poslova
-			} catch (NumberFormatException e) {
+				jobNames.add(name);
+				jobList.add(job);
+			/*} catch (NumberFormatException e) {
 				timestampedErrorPrint("Problems reading config for job" + i + ". Exiting...");
 				System.exit(0);
-			}
+			}*/
 		}
 
 		String portProperty = "servent"+serventId+".port";
@@ -188,8 +191,7 @@ public class AppConfig {
 			System.exit(0);
 		}
 		
-		//myServentInfo = new ServentInfo("localhost", serventPort);
 		myServentInfo = new ServentInfo(BOOTSTRAP_IP, serventPort);
 	}
-	
+
 }
