@@ -41,6 +41,7 @@ public class ServentInitializer implements Runnable {
 		String someServentPort = getSomeServentPort();
 		System.out.println(someServentPort);
 		int port = Integer.parseInt(someServentPort.split(":")[1]);
+		String ip = someServentPort.split(":")[0];
 
 		if (someServentPort.equals("err")) {
 			AppConfig.timestampedErrorPrint("Error in contacting bootstrap. Exiting...");
@@ -49,7 +50,8 @@ public class ServentInitializer implements Runnable {
 		if (port == -1) { //bootstrap gave us -1 -> we are first
 			AppConfig.timestampedStandardPrint("First node in Chord system.");
 		} else { //bootstrap gave us something else - let that node tell our successor that we are here
-			NewNodeMessage nnm = new NewNodeMessage(AppConfig.myServentInfo.getListenerPort(), port);
+			NewNodeMessage nnm = new NewNodeMessage(AppConfig.myServentInfo.getListenerPort(), port,
+													AppConfig.myServentInfo.getIpAddress(), ip);
 			MessageUtil.sendMessage(nnm);
 		}
 	}

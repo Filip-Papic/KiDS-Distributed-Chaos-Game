@@ -8,8 +8,8 @@ public class WelcomeMessage extends BasicMessage {
 
 	private Map<Integer, Integer> values;
 	
-	public WelcomeMessage(int senderPort, int receiverPort, Map<Integer, Integer> values) {
-		super(MessageType.WELCOME, senderPort, receiverPort);
+	public WelcomeMessage(int senderPort, int receiverPort, String senderIP, String recieverIP, Map<Integer, Integer> values) {
+		super(MessageType.WELCOME, senderPort, receiverPort, senderIP, recieverIP);
 		
 		this.values = values;
 	}

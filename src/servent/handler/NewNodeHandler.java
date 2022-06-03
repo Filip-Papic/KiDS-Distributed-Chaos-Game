@@ -25,12 +25,15 @@ public class NewNodeHandler implements MessageHandler {
 	public void run() {
 		if (clientMessage.getMessageType() == MessageType.NEW_NODE) {
 			int newNodePort = clientMessage.getSenderPort();
+			String newNodeIP = clientMessage.getSenderIP();
 			//ServentInfo newNodeInfo = new ServentInfo("localhost", newNodePort);
 			ServentInfo newNodeInfo = new ServentInfo(AppConfig.BOOTSTRAP_IP, newNodePort);
 
 			//check if the new node collides with another existing node.
 			if (AppConfig.chordState.isCollision(newNodeInfo.getChordId())) {
-				Message sry = new SorryMessage(AppConfig.myServentInfo.getListenerPort(), clientMessage.getSenderPort());
+				Message sry = new SorryMessage(AppConfig.myServentInfo.getListenerPort(), clientMessage.getSenderPort(),
+												AppConfig.myServentInfo.getIpAddress(), clientMessage.getReceiverIpAddress());
+												//!!!!!!
 				MessageUtil.sendMessage(sry);
 				return;
 			}
@@ -87,11 +90,13 @@ public class NewNodeHandler implements MessageHandler {
 				}
 				AppConfig.chordState.setValueMap(myValues);
 				
-				WelcomeMessage wm = new WelcomeMessage(AppConfig.myServentInfo.getListenerPort(), newNodePort, hisValues);
+				WelcomeMessage wm = new WelcomeMessage(AppConfig.myServentInfo.getListenerPort(), newNodePort,
+												AppConfig.myServentInfo.getIpAddress(), clientMessage.getReceiverIpAddress(), hisValues);
+												//!!!!!!!!!!!!!!
 				MessageUtil.sendMessage(wm);
 			} else { //if he is not my predecessor, let someone else take care of it
 				ServentInfo nextNode = AppConfig.chordState.getNextNodeForKey(newNodeInfo.getChordId());
-				NewNodeMessage nnm = new NewNodeMessage(newNodePort, nextNode.getListenerPort());
+				NewNodeMessage nnm = new NewNodeMessage(newNodePort, nextNode.getListenerPort(), newNodeIP, nextNode.getIpAddress());
 				MessageUtil.sendMessage(nnm);
 			}
 			

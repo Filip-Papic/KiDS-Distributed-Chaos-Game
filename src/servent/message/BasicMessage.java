@@ -20,25 +20,31 @@ public class BasicMessage implements Message {
 	private final int senderPort;
 	private final int receiverPort;
 	private final String messageText;
+	private String senderIP;
 	private String recieverIP;
+
 	//This gives us a unique id - incremented in every natural constructor.
 	private static AtomicInteger messageCounter = new AtomicInteger(0);
 	private final int messageId;
 	
-	public BasicMessage(MessageType type, int senderPort, int receiverPort) {
+	public BasicMessage(MessageType type, int senderPort, int receiverPort, String senderIP, String recieverIP) {
 		this.type = type;
 		this.senderPort = senderPort;
 		this.receiverPort = receiverPort;
+		this.senderIP = senderIP;
+		this.recieverIP = recieverIP;
 		this.messageText = "";
 		
 		this.messageId = messageCounter.getAndIncrement();
 	}
 	
-	public BasicMessage(MessageType type, int senderPort, int receiverPort, String messageText) {
+	public BasicMessage(MessageType type, int senderPort, int receiverPort, String senderIP, String recieverIP, String messageText) {
 		this.type = type;
 		this.senderPort = senderPort;
 		this.receiverPort = receiverPort;
 		this.messageText = messageText;
+		this.senderIP = senderIP;
+		this.recieverIP = recieverIP;
 		
 		this.messageId = messageCounter.getAndIncrement();
 	}
@@ -62,6 +68,10 @@ public class BasicMessage implements Message {
 	@Override
 	public int getSenderPort() {
 		return senderPort;
+	}
+
+	public String getSenderIP() {
+		return senderIP;
 	}
 
 	@Override
@@ -106,8 +116,7 @@ public class BasicMessage implements Message {
 	@Override
 	public String toString() {
 		return "[" + ChordState.chordHash(getSenderPort()) + "|" + getSenderPort() + "|" + getMessageId() + "|" +
-					getMessageText() + "|" + getMessageType() + "|" +
-					getReceiverPort() + "|" + ChordState.chordHash(getReceiverPort()) + "]";
+					getMessageText() + "|" + getMessageType() + "|" + getReceiverPort() + "|" + ChordState.chordHash(getReceiverPort()) + "]";
 	}
 
 }

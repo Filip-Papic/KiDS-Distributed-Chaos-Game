@@ -84,7 +84,7 @@ public class ChordState {
 	public void init(WelcomeMessage welcomeMsg) {
 		//set a temporary pointer to next node, for sending of update message
 		//successorTable[0] = new ServentInfo("localhost", welcomeMsg.getSenderPort());//???
-		successorTable[0] = new ServentInfo(AppConfig.BOOTSTRAP_IP, welcomeMsg.getSenderPort());//???
+		successorTable[0] = new ServentInfo(AppConfig.BOOTSTRAP_IP, welcomeMsg.getSenderPort());//getSenderIP
 		this.valueMap = welcomeMsg.getValues();
 		
 		//tell bootstrap this node is not a collider
@@ -111,6 +111,11 @@ public class ChordState {
 	
 	public ServentInfo[] getSuccessorTable() {
 		return successorTable;
+	}
+
+	public String getNextNodeIP() {
+		//return AppConfig.BOOTSTRAP_IP;
+		return successorTable[0].getIpAddress();
 	}
 	
 	public int getNextNodePort() {
@@ -168,7 +173,7 @@ public class ChordState {
 		
 		return false;
 	}
-	
+
 	/**
 	 * Main chord operation - find the nearest node to hop to to find a specific key.
 	 * We have to take a value that is smaller than required to make sure we don't overshoot.
@@ -319,7 +324,8 @@ public class ChordState {
 			valueMap.put(key, value);
 		} else {
 			ServentInfo nextNode = getNextNodeForKey(key);
-			PutMessage pm = new PutMessage(AppConfig.myServentInfo.getListenerPort(), nextNode.getListenerPort(), key, value);
+			PutMessage pm = new PutMessage(AppConfig.myServentInfo.getListenerPort(), nextNode.getListenerPort(),
+											AppConfig.myServentInfo.getIpAddress(), nextNode.getIpAddress(), key, value);
 			MessageUtil.sendMessage(pm);
 		}
 	}
@@ -342,10 +348,10 @@ public class ChordState {
 		}
 		
 		ServentInfo nextNode = getNextNodeForKey(key);
-		AskGetMessage agm = new AskGetMessage(AppConfig.myServentInfo.getListenerPort(), nextNode.getListenerPort(), String.valueOf(key));
+		AskGetMessage agm = new AskGetMessage(AppConfig.myServentInfo.getListenerPort(), nextNode.getListenerPort(),
+										      AppConfig.myServentInfo.getIpAddress(), nextNode.getIpAddress(), String.valueOf(key));
 		MessageUtil.sendMessage(agm);
 		
 		return -2;
 	}
-
 }
