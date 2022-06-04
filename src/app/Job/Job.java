@@ -1,4 +1,4 @@
-package app;
+package app.Job;
 
 import java.awt.*;
 import java.io.Serializable;

@@ -53,6 +53,9 @@ public class MultipleServentStarter {
 					}
 					bsProcess.destroy();
 					break;
+				} else if (line.equals("start")) {
+					StartCommand startCommand = new StartCommand();
+					startCommand.execute(null);
 				}
 			}
 

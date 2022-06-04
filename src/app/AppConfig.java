@@ -1,5 +1,7 @@
 package app;
 
+import app.Job.Job;
+
 import java.awt.*;
 import java.io.File;
 import java.io.FileInputStream;
@@ -150,8 +152,8 @@ public class AppConfig {
 			System.exit(0);
 		}
 
-		for(int i = 1; i < jobs; i++){
-			//try {
+		for(int i = 1; i <= jobs; i++){
+			try {
 				String name = properties.getProperty("job"+i+".name");
 				int n = Integer.parseInt(properties.getProperty("job" + i + ".n"));
 				if (n < 3 || n > 10) {
@@ -174,10 +176,10 @@ public class AppConfig {
 				Job job = new Job(name, n, p, w, h, aa);
 				jobNames.add(name);
 				jobList.add(job);
-			/*} catch (NumberFormatException e) {
+			} catch (NumberFormatException e) {
 				timestampedErrorPrint("Problems reading config for job" + i + ". Exiting...");
 				System.exit(0);
-			}*/
+			}
 		}
 
 		String portProperty = "servent"+serventId+".port";
