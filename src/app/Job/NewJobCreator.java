@@ -11,9 +11,10 @@ import java.util.Scanner;
 
 public class NewJobCreator {
 
-    public void createJob() {
+    public Job createJob() {
         Scanner scanner = new Scanner(System.in);
         //AppConfig.newJobFlag = true;
+        Job job = null;
         try {
             System.out.println("Enter job name:");
             String jobName = scanner.nextLine();
@@ -57,7 +58,7 @@ public class NewJobCreator {
                 }
             }
 
-            Job job = new Job(jobName, n, p, w, h, coords);
+            job = new Job(jobName, n, p, w, h, coords);
             AppConfig.jobList.add(job);
             AppConfig.jobNames.add(jobName);
             System.out.println(job);
@@ -66,6 +67,8 @@ public class NewJobCreator {
         } catch (InputMismatchException e) {
             System.out.println("Wrong type of input");
         }
+
+        return job;
     }
 }
 

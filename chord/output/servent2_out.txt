@@ -1,20 +1,24 @@
-12:57:01 - Starting servent [4|192.168.56.1|1300]
-12:57:01 - Pausing for 30000 ms
+19:04:47 - Starting servent [4|192.168.56.1|1300]
+19:04:47 - Pausing for 30000 ms
 192.168.56.1:1100
-12:57:02 - Sending message [4|1300|0||NEW_NODE|1100|28]
-12:57:03 - Got message [28|1100|2||WELCOME|1300|4]
-12:57:04 - Sending message [4|1300|1||UPDATE|1100|28]
-12:57:06 - Got message [4|1300|2|1100,1200|UPDATE|1300|4]
-12:57:12 - Got message [24|1400|0||NEW_NODE|1300|4]
-12:57:13 - Sending message [24|1400|2||NEW_NODE|1100|28]
-12:57:16 - Got message [24|1400|3|1100,1200|UPDATE|1300|4]
-12:57:17 - Sending message [24|1400|3|1100,1200,1300|UPDATE|1400|24]
-12:57:23 - Got message [0|1600|4||NEW_NODE|1300|4]
-12:57:25 - Sending message [4|1300|4||WELCOME|1600|0]
-12:57:26 - Got message [0|1600|1||UPDATE|1300|4]
-12:57:27 - Sending message [0|1600|5|1300|UPDATE|1400|24]
-12:57:31 - Pausing for 10000 ms
-12:57:34 - Got message [0|1600|3|2:5|PUT|1300|4]
-12:57:38 - Got message [48|1200|5|2|ASK_GET|1300|4]
-12:57:39 - Sending message [4|1300|6|2:5|TELL_GET|1200|48]
-12:57:41 - Stopping...
+19:04:48 - Sending message [4|1300|0||NEW_NODE|1100|28]
+19:04:48 - Got message [28|1100|2||WELCOME|1300|4]
+19:04:50 - Sending message [4|1300|1||UPDATE|1100|28]
+19:04:51 - Got message [4|1300|2|1100,1200|UPDATE|1300|4]
+19:04:58 - Got message [24|1400|3||NEW_NODE|1300|4]
+19:04:59 - Sending message [24|1400|2||NEW_NODE|1100|28]
+19:05:03 - Got message [24|1400|4|1100,1200|UPDATE|1300|4]
+19:05:04 - Sending message [24|1400|3|1100,1200,1300|UPDATE|1400|24]
+19:05:08 - Got message [0|1600|0||NEW_NODE|1300|4]
+19:05:08 - Sending message [4|1300|4||WELCOME|1600|0]
+19:05:09 - Got message [0|1600|1||UPDATE|1300|4]
+19:05:10 - Sending message [0|1600|5|1300|UPDATE|1400|24]
+ima ga
+Start: java.awt.Point[x=0,y=600]
+First: java.awt.Point[x=600,y=0]
+Current: java.awt.Point[x=180,y=180]
+19:05:17 - Pausing for 10000 ms
+19:05:20 - Got message [0|1600|3|2:5|PUT|1300|4]
+19:05:24 - Got message [48|1200|5|2|ASK_GET|1300|4]
+19:05:25 - Sending message [4|1300|6|2:5|TELL_GET|1200|48]
+19:05:27 - Stopping...

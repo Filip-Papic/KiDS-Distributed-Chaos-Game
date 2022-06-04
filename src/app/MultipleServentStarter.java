@@ -56,6 +56,10 @@ public class MultipleServentStarter {
 				} else if (line.equals("start")) {
 					StartCommand startCommand = new StartCommand();
 					startCommand.execute(null);
+				} else if (line.startsWith("start ")) {
+					String jobName = line.split(" ")[1];
+					StartCommand startCommand = new StartCommand();
+					startCommand.execute(jobName);
 				}
 			}
 
