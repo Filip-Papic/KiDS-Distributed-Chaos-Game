@@ -1,28 +1,22 @@
-21:01:52 - Starting servent [4|192.168.56.1|1300]
-21:01:52 - Pausing for 20000 ms
-192.168.56.1:1100
-21:01:54 - Sending message [4|1300|0||NEW_NODE|1100|28]
-21:01:55 - Got message [28|1100|2||WELCOME|1300|4]
-21:01:56 - Sending message [4|1300|1||UPDATE|1100|28]
-21:01:57 - Got message [4|1300|2|1100,1200|UPDATE|1300|4]
-21:02:03 - Got message [24|1400|0||NEW_NODE|1300|4]
-21:02:04 - Sending message [24|1400|2||NEW_NODE|1100|28]
-21:02:07 - Got message [24|1400|3|1100,1200|UPDATE|1300|4]
-21:02:09 - Sending message [24|1400|3|1100,1200,1300|UPDATE|1400|24]
-ima ga
-Start: java.awt.Point[x=100,y=446]
-First: java.awt.Point[x=300,y=100]
-Current: java.awt.Point[x=200,y=273]
-21:02:12 - Pausing for 10000 ms
-21:02:16 - Got message [0|1600|4||NEW_NODE|1300|4]
-21:02:17 - Sending message [4|1300|4||WELCOME|1600|0]
-21:02:18 - Got message [0|1600|1||UPDATE|1300|4]
-21:02:20 - Sending message [0|1600|5|1300|UPDATE|1400|24]
-21:02:22 - Pausing for 10000 ms
-21:02:23 - Sending message [4|1300|6||RESULT|1400|24]
-21:02:25 - Got message [0|1600|2|2:5|PUT|1300|4]
-21:02:29 - Got message [0|1600|4||RESULT|1300|4]
-21:02:29 - Got message [48|1200|5|2|ASK_GET|1300|4]
-21:02:30 - Sending message [4|1300|7||RESULT|1400|24]
-21:02:30 - Sending message [4|1300|8|2:5|TELL_GET|1200|48]
-21:02:32 - Stopping...
+22:33:13 - Starting servent [4|192.168.56.1|1300]
+22:33:13 - Pausing for 20000 ms
+192.168.56.1:1200
+22:33:14 - Sending message [4|1300|0||NEW_NODE|1200|48]
+22:33:16 - Got message [28|1100|2||WELCOME|1300|4]
+22:33:17 - Sending message [4|1300|1||UPDATE|1100|28]
+22:33:19 - Got message [4|1300|3|1100,1200|UPDATE|1300|4]
+22:33:28 - Got message [24|1400|4|1100,1200|UPDATE|1300|4]
+22:33:28 - Sending message [24|1400|2|1100,1200,1300|UPDATE|1400|24]
+22:33:33 - Pausing for 10000 ms
+22:33:34 - Sending message [4|1300|3|triangle|START|1400|24]
+22:33:37 - Got message [0|1600|5||NEW_NODE|1300|4]
+22:33:38 - Sending message [4|1300|4||WELCOME|1600|0]
+22:33:39 - Got message [0|1600|1||UPDATE|1300|4]
+22:33:40 - Sending message [0|1600|5|1300|UPDATE|1400|24]
+22:33:43 - Pausing for 10000 ms
+22:33:45 - Got message [0|1600|2|2:5|PUT|1300|4]
+22:33:47 - Got message [0|1600|3||RESULT|1300|4]
+22:33:48 - Sending message [4|1300|6||RESULT|1400|24]
+22:33:50 - Got message [48|1200|5|2|ASK_GET|1300|4]
+22:33:52 - Sending message [4|1300|7|2:5|TELL_GET|1200|48]
+22:33:53 - Stopping...

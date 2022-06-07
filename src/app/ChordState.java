@@ -41,7 +41,8 @@ import servent.message.util.MessageUtil;
 public class ChordState {
 
 	public static int CHORD_SIZE;
-	public static int chordHash(int value) {
+
+    public static int chordHash(int value) {
 		return 61 * value % CHORD_SIZE;
 	}
 	
@@ -54,7 +55,7 @@ public class ChordState {
 	private List<ServentInfo> allNodeInfo;
 	
 	private Map<Integer, Integer> valueMap;
-	
+
 	public ChordState() {
 		this.chordLevel = 1;
 		int tmp = CHORD_SIZE;

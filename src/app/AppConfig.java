@@ -10,10 +10,8 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.*;
 import java.util.List;
-import java.util.Properties;
 
 /**
  * This class contains all the global application configuration stuff.
@@ -59,7 +57,8 @@ public class AppConfig {
 	public static ArrayList<String> jobNames = new ArrayList<>();
 	public static ChordState chordState;
 	public static Boolean newJobFlag = false;
-	public static List<Point> jobResultPoints = new ArrayList<>();
+	public static Map<String, Job> jobNamesMap = new HashMap<>();
+	public static Map<String, Map<Job, List<Point>>> jobNameResultsMap = new HashMap<>();
 	
 	/**
 	 * Reads a config file. Should be called once at start of app.
@@ -177,6 +176,7 @@ public class AppConfig {
 				Job job = new Job(name, n, p, w, h, aa);
 				jobNames.add(name);
 				jobList.add(job);
+				jobNamesMap.put(name, job);
 			} catch (NumberFormatException e) {
 				timestampedErrorPrint("Problems reading config for job" + i + ". Exiting...");
 				System.exit(0);

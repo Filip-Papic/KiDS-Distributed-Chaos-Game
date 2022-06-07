@@ -5,6 +5,9 @@ import app.Job.Job;
 import app.Job.JobChaos;
 import app.Job.JobResult;
 import app.Job.NewJobCreator;
+import servent.message.CreateJobMessage;
+import servent.message.StartMessage;
+import servent.message.util.MessageUtil;
 
 public class StartCommand implements CLICommand {
 
@@ -19,22 +22,18 @@ public class StartCommand implements CLICommand {
     @Override
     public void execute(String args) {//RADI KAD DODAM U MultiServentStarter
         if (args == null) {//unesi novi posao sam
-            NewJobCreator newJobCreator = new NewJobCreator(); //MORA OVO SVE PREKO PORUKA VALJDA
-            Job job = newJobCreator.createJob();
-            JobChaos jobChaos = new JobChaos();
-            jobChaos.startJob(job);
+            CreateJobMessage createJobMessage = new CreateJobMessage(AppConfig.myServentInfo.getListenerPort(), AppConfig.chordState.getNextNodePort(),
+                    AppConfig.myServentInfo.getIpAddress(), AppConfig.chordState.getNextNodeIP());
+            MessageUtil.sendMessage(createJobMessage);
         } else {
             if (!AppConfig.jobNames.contains(args)) {
                 System.out.println(AppConfig.jobNames);
                 System.out.println("Job with that name does not exist: " + args);
             } else {
-                JobChaos jobChaos = new JobChaos();
-                for (Job jb : AppConfig.jobList) {
-                    if (jb.getJobName().equals(args)) {
-                        System.out.println("ima ga");
-                        jobChaos.startJob(jb);
-                    }
-                }
+                String jobName = args;
+                StartMessage startMessage = new StartMessage(AppConfig.myServentInfo.getListenerPort(), AppConfig.chordState.getNextNodePort(),
+                                                             AppConfig.myServentInfo.getIpAddress(), AppConfig.chordState.getNextNodeIP(), jobName);
+                MessageUtil.sendMessage(startMessage);
             }
         }
     }

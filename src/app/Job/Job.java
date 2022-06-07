@@ -2,6 +2,7 @@ package app.Job;
 
 import java.awt.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Job implements Serializable {
@@ -12,7 +13,7 @@ public class Job implements Serializable {
     private final int jobWidth;
     private final int jobHeight;
     private final List<Point> jobCoordinates;
-    private List<Point> jobResults; //mapa fractal id, result
+    private List<Point> jobResults = new ArrayList<>(); //mapa fractal id, result
 
     public Job(String name, int n, double p, int w, int h, List<Point> aa) {
         this.jobName = name;
@@ -21,6 +22,7 @@ public class Job implements Serializable {
         this.jobWidth = w;
         this.jobHeight = h;
         this.jobCoordinates = aa;
+        //this.jobResults = new ArrayList<>();
     }
 
     public List<Point> getJobResults() {

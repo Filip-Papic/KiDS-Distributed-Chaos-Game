@@ -3,6 +3,7 @@ package servent.handler;
 import app.AppConfig;
 import app.Job.Job;
 import app.Job.JobChaos;
+import app.Job.JobImage;
 import app.Job.JobResult;
 import servent.message.*;
 import servent.message.util.MessageUtil;
@@ -19,19 +20,21 @@ public class ResultHandler implements MessageHandler{
     public void run() {
         if (clientMessage.getMessageType() == MessageType.RESULT) {
             ResultMessage resultMessage = (ResultMessage) clientMessage;
-            if(clientMessage.getSenderPort() != AppConfig.myServentInfo.getListenerPort()){// &&
+
+            if(resultMessage.getOriginalSenderPort() != AppConfig.myServentInfo.getListenerPort()) { //&&
                 //clientMessage.getSenderIP() != AppConfig.myServentInfo.getIpAddress()) {
 
+                //if(resultMessage.getFractalID() == -1) {
+                //dodaj svoj deo posla i salji dalje ako nisi ti trazio result
                 ResultMessage resultMessage1 = new ResultMessage(AppConfig.myServentInfo.getListenerPort(), AppConfig.chordState.getNextNodePort(),
-                        AppConfig.myServentInfo.getIpAddress(), AppConfig.chordState.getNextNodeIP(), resultMessage.getJobName());
+                        AppConfig.myServentInfo.getIpAddress(), AppConfig.chordState.getNextNodeIP(),
+                        resultMessage.getOriginalSenderPort(), resultMessage.getJobName());
                 MessageUtil.sendMessage(resultMessage1);
+
             } else {
-                JobChaos jobChaos = new JobChaos();
-                for (Job jb : AppConfig.jobList) {
-                    if (jb.getJobName().equals(resultMessage.getJobName())) {
-                        jobChaos.chaosResult(jb);
-                    }
-                }
+                JobImage jobImage = new JobImage();
+                //jobImage.imageResult(AppConfig.jobNameResultsMap.get(resultMessage.getJobName()));
+                jobImage.imageResult(AppConfig.jobNamesMap.get(resultMessage.getJobName()));
             }
         } else {
             AppConfig.timestampedErrorPrint("Welcome handler got a message that is not RESULT");

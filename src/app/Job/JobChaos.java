@@ -10,18 +10,28 @@ import java.io.IOException;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class JobChaos implements Runnable {
 
     //private final int ITERATIONS = 10000;
-    private List<Point> resultPoints = new CopyOnWriteArrayList<>();
+    private AtomicBoolean sleep;
 
     @Override
     public void run() {
-
+        while(true) {
+            if (sleep.get()) {
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
-    public void startJob(Job job){ //static
+    public static void startJob(Job job){ //static
+        List<Point> resultPoints = new ArrayList<>();//CopyOnWriteArrayList<>();
         Random random = new Random();
         int n = job.getJobPointNumber();
         double p = job.getJobDistance();
@@ -61,47 +71,9 @@ public class JobChaos implements Runnable {
         }
 
         job.setJobResults(resultPoints);
-        //AppConfig.jobResultPoints = resultPoints;
-        //chaosResult(job);
-    }
 
-    public void chaosResult(Job job) {
-        List<Point> resultPoints = job.getJobResults();
-        int w = job.getJobWidth();
-        int h = job.getJobHeight();
-        int n = job.getJobPointNumber();
-        List<Point> points = job.getJobCoordinates();
-        int[] x = new int[n];
-        int[] y = new int[n];
-
-        BufferedImage img = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g2d = img.createGraphics();
-        g2d.setPaint(Color.black);
-        g2d.fillRect(0, 0, w, h);
-
-        for (int i = 0; i < points.size(); i++) {
-            Point point = points.get(i);
-            x[i] = Double.valueOf(point.getX()).intValue();
-            y[i] = Double.valueOf(point.getY()).intValue();
-        }
-
-        //starting coordinates
-        g2d.setPaint(Color.red);
-        for(int xy = 0; xy < n; xy++){
-            g2d.fillOval(x[xy], y[xy], 10, 10);
-        }
-
-        //all other
-        g2d.setPaint(Color.yellow);
-        for(Point pnt : resultPoints){
-            g2d.fillOval(pnt.x, pnt.y, 2, 2);
-        }
-
-        try {
-            ImageIO.write(img, "png", new File("images\\" + job.getJobName() + ".png"));
-            System.out.println("Created image: " + job.getJobName());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Map<Job, List<Point>> map = new HashMap<>();
+        map.put(job, resultPoints);
+        AppConfig.jobNameResultsMap.put(job.getJobName(), map);//mape: ime, job, result
     }
 }
