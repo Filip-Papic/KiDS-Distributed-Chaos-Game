@@ -1,24 +1,29 @@
-19:04:27 - Starting servent [28|192.168.56.1|1100]
-19:04:27 - Pausing for 50000 ms
+21:01:32 - Starting servent [28|192.168.56.1|1100]
+21:01:32 - Pausing for 50000 ms
 -1:-1
-19:04:27 - First node in Chord system.
-19:04:38 - Got message [48|1200|0||NEW_NODE|1100|28]
-19:04:40 - Sending message [28|1100|0||WELCOME|1200|48]
-19:04:41 - Got message [48|1200|1||UPDATE|1100|28]
-19:04:41 - Sending message [48|1200|1|1100|UPDATE|1200|48]
-19:04:48 - Got message [4|1300|0||NEW_NODE|1100|28]
-19:04:48 - Sending message [28|1100|2||WELCOME|1300|4]
-19:04:50 - Got message [4|1300|1||UPDATE|1100|28]
-19:04:50 - Sending message [4|1300|3|1100|UPDATE|1200|48]
-19:04:59 - Got message [24|1400|2||NEW_NODE|1100|28]
-19:05:00 - Sending message [28|1100|4||WELCOME|1400|24]
-19:05:01 - Got message [24|1400|1||UPDATE|1100|28]
-19:05:02 - Sending message [24|1400|5|1100|UPDATE|1200|48]
-19:05:11 - Got message [0|1600|2|1300,1400|UPDATE|1100|28]
-19:05:12 - Sending message [0|1600|6|1300,1400,1100|UPDATE|1200|48]
-19:05:17 - Pausing for 10000 ms
-19:05:18 - Sending message [28|1100|7|2:5|PUT|1200|48]
-19:05:19 - Got message [24|1400|3|25:3|PUT|1100|28]
-19:05:23 - Got message [0|1600|4|25|ASK_GET|1100|28]
-19:05:24 - Sending message [28|1100|8|25:3|TELL_GET|1600|0]
-19:05:27 - Stopping...
+21:01:32 - First node in Chord system.
+21:01:43 - Got message [48|1200|0||NEW_NODE|1100|28]
+21:01:45 - Sending message [28|1100|0||WELCOME|1200|48]
+21:01:46 - Got message [48|1200|1||UPDATE|1100|28]
+21:01:47 - Sending message [48|1200|1|1100|UPDATE|1200|48]
+21:01:54 - Got message [4|1300|0||NEW_NODE|1100|28]
+21:01:55 - Sending message [28|1100|2||WELCOME|1300|4]
+21:01:56 - Got message [4|1300|1||UPDATE|1100|28]
+21:01:57 - Sending message [4|1300|3|1100|UPDATE|1200|48]
+21:02:04 - Got message [24|1400|2||NEW_NODE|1100|28]
+21:02:05 - Sending message [28|1100|4||WELCOME|1400|24]
+21:02:06 - Got message [24|1400|1||UPDATE|1100|28]
+21:02:07 - Sending message [24|1400|5|1100|UPDATE|1200|48]
+21:02:14 - Got message [0|1600|2||NEW_NODE|1100|28]
+21:02:15 - Sending message [0|1600|6||NEW_NODE|1200|48]
+21:02:21 - Got message [0|1600|3|1300,1400|UPDATE|1100|28]
+21:02:21 - Sending message [0|1600|7|1300,1400,1100|UPDATE|1200|48]
+21:02:22 - Pausing for 10000 ms
+21:02:23 - Sending message [28|1100|8|2:5|PUT|1200|48]
+21:02:24 - Got message [24|1400|4||RESULT|1100|28]
+21:02:26 - Sending message [28|1100|9||RESULT|1200|48]
+21:02:28 - Got message [0|1600|5|25|ASK_GET|1100|28]
+21:02:30 - Sending message [28|1100|10|25:-1|TELL_GET|1600|0]
+21:02:31 - Got message [24|1400|6||RESULT|1100|28]
+21:02:32 - Sending message [28|1100|11||RESULT|1200|48]
+21:02:32 - Stopping...

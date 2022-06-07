@@ -19,9 +19,9 @@ public class StartCommand implements CLICommand {
     @Override
     public void execute(String args) {//RADI KAD DODAM U MultiServentStarter
         if (args == null) {//unesi novi posao sam
-            NewJobCreator newJobCreator = new NewJobCreator();
-            JobChaos jobChaos = new JobChaos();
+            NewJobCreator newJobCreator = new NewJobCreator(); //MORA OVO SVE PREKO PORUKA VALJDA
             Job job = newJobCreator.createJob();
+            JobChaos jobChaos = new JobChaos();
             jobChaos.startJob(job);
         } else {
             if (!AppConfig.jobNames.contains(args)) {

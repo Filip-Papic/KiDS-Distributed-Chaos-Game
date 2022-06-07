@@ -1,4 +1,6 @@
-pause 30000
-start square
+pause 20000
+start triangle
+pause 10000
+result triangle
 pause 10000
 stop

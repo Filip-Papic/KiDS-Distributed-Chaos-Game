@@ -35,7 +35,7 @@ public class CLIParser implements Runnable, Cancellable {
 	private Scanner sc;
 	public CLIParser(SimpleServentListener listener) {
 		this.commandList = new ArrayList<>();
-		this.sc = new Scanner(System.in);
+
 		commandList.add(new InfoCommand());
 		commandList.add(new PauseCommand());
 		commandList.add(new SuccessorInfo());
@@ -44,6 +44,7 @@ public class CLIParser implements Runnable, Cancellable {
 		commandList.add(new StopCommand(this, listener));
 		commandList.add(new QuitCommand(this, listener));
 		commandList.add(new StartCommand());
+		commandList.add(new ResultCommand());
 	}
 
 	public Scanner getSc() {
@@ -89,6 +90,6 @@ public class CLIParser implements Runnable, Cancellable {
 	@Override
 	public void stop() {
 		this.working = false;
-		
+
 	}
 }

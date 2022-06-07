@@ -1,7 +1,9 @@
 package app;
 
+import cli.command.ResultCommand;
 import cli.command.StartCommand;
 
+import javax.xml.transform.Result;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -60,6 +62,12 @@ public class MultipleServentStarter {
 					String jobName = line.split(" ")[1];
 					StartCommand startCommand = new StartCommand();
 					startCommand.execute(jobName);
+				} else if (line.equals("result")) {
+					System.out.println("Please enter job name and optional fractal ID\n");
+				} else if (line.startsWith("result ")) {
+					String jobName = line.split(" ")[1];
+					ResultCommand resultCommand = new ResultCommand();
+					resultCommand.execute(jobName);
 				}
 			}
 

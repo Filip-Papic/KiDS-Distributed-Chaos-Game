@@ -59,6 +59,7 @@ public class AppConfig {
 	public static ArrayList<String> jobNames = new ArrayList<>();
 	public static ChordState chordState;
 	public static Boolean newJobFlag = false;
+	public static List<Point> jobResultPoints = new ArrayList<>();
 	
 	/**
 	 * Reads a config file. Should be called once at start of app.
