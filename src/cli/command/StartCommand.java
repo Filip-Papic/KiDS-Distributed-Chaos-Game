@@ -1,13 +1,16 @@
 package cli.command;
 
 import app.AppConfig;
-import app.Job.Job;
-import app.Job.JobChaos;
-import app.Job.JobResult;
-import app.Job.NewJobCreator;
+import app.Job.*;
 import servent.message.CreateJobMessage;
 import servent.message.StartMessage;
 import servent.message.util.MessageUtil;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class StartCommand implements CLICommand {
 
@@ -31,8 +34,14 @@ public class StartCommand implements CLICommand {
                 System.out.println("Job with that name does not exist: " + args);
             } else {
                 String jobName = args;
+                Job job = AppConfig.jobNamesMap.get(jobName);
+
+                Map<Integer, List<Point>> jobsForServentsByTheirID = JobSplit.split(job);
+
                 StartMessage startMessage = new StartMessage(AppConfig.myServentInfo.getListenerPort(), AppConfig.chordState.getNextNodePort(),
-                                                             AppConfig.myServentInfo.getIpAddress(), AppConfig.chordState.getNextNodeIP(), jobName);
+                                                             AppConfig.myServentInfo.getIpAddress(), AppConfig.chordState.getNextNodeIP(),
+                                                             AppConfig.myServentInfo.getListenerPort(), jobName, jobsForServentsByTheirID);
+                //startMessage.setFractalCoords(jobsForServentsByTheirID);
                 MessageUtil.sendMessage(startMessage);
             }
         }

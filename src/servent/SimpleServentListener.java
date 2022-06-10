@@ -90,8 +90,8 @@ public class SimpleServentListener implements Runnable, Cancellable {
 				case RESULT:
 					messageHandler = new ResultHandler(clientMessage);
 					break;
-				case FRACTAL_RESULT:
-					messageHandler = new ResultFractalHandler(clientMessage);
+				case NEW_JOB_ADDED:
+					messageHandler = new NewJobAddedHandler(clientMessage);
 					break;
 				}
 				

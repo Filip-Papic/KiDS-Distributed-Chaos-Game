@@ -27,7 +27,7 @@ public class ServentInitializer implements Runnable {
 			
 			Scanner bsScanner = new Scanner(bsSocket.getInputStream());
 			retVal = bsScanner.nextLine();
-			
+
 			bsSocket.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -39,21 +39,25 @@ public class ServentInitializer implements Runnable {
 	@Override
 	public void run() {
 		String someServentPort = getSomeServentPort();
-		System.out.println(someServentPort);
 		int port = Integer.parseInt(someServentPort.split(":")[1]);
 		String ip = someServentPort.split(":")[0];
+		int id = Integer.parseInt(someServentPort.split(":")[2]);
 
 		if (someServentPort.equals("err")) {
 			AppConfig.timestampedErrorPrint("Error in contacting bootstrap. Exiting...");
 			System.exit(0);
 		}
 		if (port == -1) { //bootstrap gave us -1 -> we are first
+			//AppConfig.chordState.getAllNodeInfo().add(AppConfig.myServentInfo); //BRISI!!!!!!!!!!!!!!!
+			AppConfig.myServentInfo.setId(0);
 			AppConfig.timestampedStandardPrint("First node in Chord system.");
+			System.out.println(someServentPort);
 		} else { //bootstrap gave us something else - let that node tell our successor that we are here
+			AppConfig.myServentInfo.setId(id);
+			System.out.println(someServentPort);
 			NewNodeMessage nnm = new NewNodeMessage(AppConfig.myServentInfo.getListenerPort(), port,
 													AppConfig.myServentInfo.getIpAddress(), ip);
 			MessageUtil.sendMessage(nnm);
 		}
 	}
-
 }

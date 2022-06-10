@@ -1,6 +1,7 @@
 package app;
 
 import java.io.Serializable;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * This is an immutable class that holds all the information for a servent.
@@ -13,7 +14,8 @@ public class ServentInfo implements Serializable {
 	private final String ipAddress;
 	private final int listenerPort;
 	private final int chordId;
-	
+	private int id;
+
 	public ServentInfo(String ipAddress, int listenerPort) {
 		this.ipAddress = ipAddress;
 		this.listenerPort = listenerPort;
@@ -31,7 +33,15 @@ public class ServentInfo implements Serializable {
 	public int getChordId() {
 		return chordId;
 	}
-	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
 		return "[" + chordId + "|" + ipAddress + "|" + listenerPort + "]";

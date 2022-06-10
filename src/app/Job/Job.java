@@ -37,6 +37,7 @@ public class Job implements Serializable {
         return jobName;
     }
 
+
     public int getJobPointNumber() {
         return jobPointNumber;
     }

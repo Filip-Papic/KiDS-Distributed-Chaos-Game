@@ -40,6 +40,9 @@ public class QuitCommand implements CLICommand {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        //QuitMessage quitMessage =  URADI AAAAAAAAAAA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
         AppConfig.timestampedStandardPrint("Bootstrap is removing this node...");
         parser.stop();
         listener.stop();

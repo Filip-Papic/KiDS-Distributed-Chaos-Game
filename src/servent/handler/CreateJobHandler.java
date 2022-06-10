@@ -28,7 +28,8 @@ public class CreateJobHandler implements MessageHandler {
                 Job job = newJobCreator.createJob();
 
                 StartMessage startMessage = new StartMessage(AppConfig.myServentInfo.getListenerPort(), AppConfig.chordState.getNextNodePort(),
-                        AppConfig.myServentInfo.getIpAddress(), AppConfig.chordState.getNextNodeIP(), job.getJobName());
+                        AppConfig.myServentInfo.getIpAddress(), AppConfig.chordState.getNextNodeIP(), AppConfig.myServentInfo.getListenerPort(),
+                        job.getJobName(), null);    //!!!!!!!!!!!!!!!!!!!!!!!                            //!!!!!!!!!!!!
                 MessageUtil.sendMessage(startMessage);
             }
         }

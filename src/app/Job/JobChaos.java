@@ -75,5 +75,6 @@ public class JobChaos implements Runnable {
         Map<Job, List<Point>> map = new HashMap<>();
         map.put(job, resultPoints);
         AppConfig.jobNameResultsMap.put(job.getJobName(), map);//mape: ime, job, result
+        System.out.println("JOB " + job.getJobName() +  " DONE");
     }
 }

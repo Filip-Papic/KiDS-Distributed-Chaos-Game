@@ -91,7 +91,7 @@ public class NewNodeHandler implements MessageHandler {
 				AppConfig.chordState.setValueMap(myValues);
 				
 				WelcomeMessage wm = new WelcomeMessage(AppConfig.myServentInfo.getListenerPort(), newNodePort,
-												AppConfig.myServentInfo.getIpAddress(), clientMessage.getReceiverIpAddress(), hisValues);
+												AppConfig.myServentInfo.getIpAddress(), newNodeIP, hisValues);
 												//!!!!!!!!!!!!!!
 				MessageUtil.sendMessage(wm);
 			} else { //if he is not my predecessor, let someone else take care of it

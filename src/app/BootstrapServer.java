@@ -90,11 +90,12 @@ public class BootstrapServer {
 
 					if (activeServents.size() == 0) {//bootstrap salje i ip adresu i port
 						//socketWriter.write(String.valueOf(-1) + "\n");
-						socketWriter.write("-1"+ ":" + String.valueOf(-1) + "\n");
+						socketWriter.write("-1"+ ":" + String.valueOf(-1) + ":" + 0 + "\n");
+						System.out.println("BOOTSTRAP: adding " + newServentInfo);
 						activeServents.add(newServentInfo); //first one doesn't need to confirm
 					} else {
 						String randServent = activeServents.get(rand.nextInt(activeServents.size()));
-						socketWriter.write(randServent.split(":")[0] + ":" + randServent.split(":")[1] + "\n");
+						socketWriter.write(randServent.split(":")[0] + ":" + randServent.split(":")[1] + ":" + activeServents.size() +"\n");
 					}
 					
 					socketWriter.flush();
@@ -124,14 +125,17 @@ public class BootstrapServer {
 					System.out.println("BOOTSTRAP: removing " + serventIp + ":" + serventPort);
 					PrintWriter socketWriter = new PrintWriter(newServentSocket.getOutputStream());
 
-					if (activeServents.size() == 0) {
+					if (activeServents.size() == 0 || !activeServents.contains(newServentInfo)) {//!!!
 						System.out.println("BOOTSTRAP: no nodes to remove!!!");
 					} else {
 						activeServents.remove(newServentInfo);
 					}
 
+					System.out.println(activeServents);
 					socketWriter.flush();
 					newServentSocket.close();
+				} else {
+					System.out.println("BOOTSTRAP: Wrong message");
 				}
 			} catch (SocketTimeoutException e) {
 				

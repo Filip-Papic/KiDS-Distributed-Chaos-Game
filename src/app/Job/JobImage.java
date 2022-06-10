@@ -94,7 +94,7 @@ public class JobImage {
             }
 
             try {
-                ImageIO.write(img, "png", new File("images\\" + job.getJobName() + ".png"));
+                ImageIO.write(img, "png", new File("images\\" + job.getJobName() + fractalID + ".png"));
                 System.out.println("Created image: " + job.getJobName());
             } catch (IOException e) {
                 e.printStackTrace();

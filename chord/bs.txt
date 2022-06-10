@@ -1,5 +1,6 @@
-22:32:51 - BOOTSTRAP: Bootstrap server started on port: 2000
+19:40:00 - BOOTSTRAP: Bootstrap server started on port: 2000
 BOOTSTRAP: got 192.168.56.1:1100
+BOOTSTRAP: adding 192.168.56.1:1100
 BOOTSTRAP: got 192.168.56.1:1200
 BOOTSTRAP: adding 192.168.56.1:1200
 BOOTSTRAP: got 192.168.56.1:1300

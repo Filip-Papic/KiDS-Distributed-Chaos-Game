@@ -56,6 +56,10 @@ public class ChordState {
 	
 	private Map<Integer, Integer> valueMap;
 
+	public List<ServentInfo> getAllNodeInfo() {
+		return allNodeInfo;
+	}
+
 	public ChordState() {
 		this.chordLevel = 1;
 		int tmp = CHORD_SIZE;
@@ -85,7 +89,7 @@ public class ChordState {
 	public void init(WelcomeMessage welcomeMsg) {
 		//set a temporary pointer to next node, for sending of update message
 		//successorTable[0] = new ServentInfo("localhost", welcomeMsg.getSenderPort());//???
-		successorTable[0] = new ServentInfo(AppConfig.BOOTSTRAP_IP, welcomeMsg.getSenderPort());//getSenderIP
+		successorTable[0] = new ServentInfo(welcomeMsg.getSenderIP(), welcomeMsg.getSenderPort());
 		this.valueMap = welcomeMsg.getValues();
 		
 		//tell bootstrap this node is not a collider

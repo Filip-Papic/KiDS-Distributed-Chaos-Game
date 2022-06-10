@@ -12,6 +12,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * This class contains all the global application configuration stuff.
@@ -56,6 +57,7 @@ public class AppConfig {
 	public static ArrayList<Job> jobList = new ArrayList<>();
 	public static ArrayList<String> jobNames = new ArrayList<>();
 	public static ChordState chordState;
+	public static AtomicInteger ID = new AtomicInteger(-1);
 	public static Boolean newJobFlag = false;
 	public static Map<String, Job> jobNamesMap = new HashMap<>();
 	public static Map<String, Map<Job, List<Point>>> jobNameResultsMap = new HashMap<>();
