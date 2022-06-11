@@ -34,9 +34,8 @@ public class StartCommand implements CLICommand {
                 System.out.println("Job with that name does not exist: " + args);
             } else {
                 String jobName = args;
-                Job job = AppConfig.jobNamesMap.get(jobName);
 
-                Map<Integer, List<Point>> jobsForServentsByTheirID = JobSplit.split(job);
+                Map<Integer, List<Point>> jobsForServentsByTheirID = JobSplit.split(jobName);
 
                 StartMessage startMessage = new StartMessage(AppConfig.myServentInfo.getListenerPort(), AppConfig.chordState.getNextNodePort(),
                                                              AppConfig.myServentInfo.getIpAddress(), AppConfig.chordState.getNextNodeIP(),
