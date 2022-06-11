@@ -1,4 +1,0 @@
-18:14:31 - Error in reading socket on /192.168.56.1:56993
-Exception in thread "Thread-0" java.lang.NullPointerException: Cannot invoke "servent.message.Message.getMessageType()" because "clientMessage" is null
-	at servent.SimpleServentListener.run(SimpleServentListener.java:60)
-	at java.base/java.lang.Thread.run(Thread.java:831)

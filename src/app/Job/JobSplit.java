@@ -30,37 +30,40 @@ public class JobSplit {
             //jobsForServentsByTheirID.put(freeNode, job); //tako nesto
             //return jobsForServentsByTheirID;
         }
-        int k = 0;
+
         for(Point point : startingCoords){
-            //x[k] = point.x;
-            //y[k] = point.y;
-            //k++;
             x.add(point.x);
             y.add(point.y);
         }
 
-        List<Point> newPoints = new ArrayList<>();
-        for (int i = 0; i < x.size(); i++) { //0_0
+        for (int i = 0; i < x.size(); i++) { //0_0 veselo
+            List<Point> newPoints = new ArrayList<>();
             int l = 1;
             int g = 1;
+
+            if(i > 0) {
+                Collections.swap(x, 0, i);
+                Collections.swap(y, 0, i);
+            }
+
+            newPoints.add(startingCoords.get(i));
+
             while (g < x.size()) {
-                System.out.println("x: " + x + " y: " + y + " for " + i + " size " + x.size() + " l " + l);
+
                 Point point = new Point();
 
-                point.x = (int) ((x.get(i) + x.get(i + l)) * job.getJobDistance());
-                point.y = (int) ((y.get(i) + y.get(i + l)) * job.getJobDistance());
+                point.x = (int) ((x.get(0) + x.get(l)) * job.getJobDistance());
+                point.y = (int) ((y.get(0) + y.get(l)) * job.getJobDistance());
 
                 newPoints.add(point);
                 l++;
                 g++;
-                System.out.println("ADDED " + point + " l = " + l);
             }
-            x.remove(i);
-            y.remove(i);
-            i--;
-        }
-        System.out.println("NEW POINTS SPLIT: " + newPoints);
 
+            jobsForServentsByTheirID.put(i, newPoints);//ID cvora i njegove kordinate za posao
+        }
+
+        System.out.println(jobsForServentsByTheirID.keySet());
 
         if(freeNodes > job.getJobPointNumber()) {
 
@@ -69,28 +72,6 @@ public class JobSplit {
         /*300,100,200,273,400,273
         100,446,200,273,300,446
         500,446,400,273,300,446*/
-
-        List<Point> fractalServent1 = new ArrayList<>();
-        List<Point> fractalServent0 = new ArrayList<>();
-        List<Point> fractalServent3 = new ArrayList<>();
-
-        fractalServent1.add(new Point(300,100));
-        fractalServent1.add(new Point(200,273));
-        fractalServent1.add(new Point(400,273));
-
-        fractalServent0.add(new Point(100,446));
-        fractalServent0.add(new Point(200,273));
-        fractalServent0.add(new Point(300,446));
-
-        fractalServent3.add(new Point(500,446));
-        fractalServent3.add(new Point(400,273));
-        fractalServent3.add(new Point(300,446));
-
-        jobsForServentsByTheirID.put(1, fractalServent1);
-        jobsForServentsByTheirID.put(0, fractalServent0);
-        jobsForServentsByTheirID.put(2, fractalServent0);
-        jobsForServentsByTheirID.put(3, fractalServent3);
-
         return jobsForServentsByTheirID;
     }
 }

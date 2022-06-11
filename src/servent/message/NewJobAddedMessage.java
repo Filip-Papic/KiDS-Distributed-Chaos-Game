@@ -7,8 +7,8 @@ public class NewJobAddedMessage extends BasicMessage {
     private Job jobFractal;
     private int originalSenderPort;
     public NewJobAddedMessage(int senderPort, int receiverPort, String senderIP, String recieverIP,
-                              int originalSenderPort, Job jobFractal) {
-        super(MessageType.NEW_JOB_ADDED, senderPort, receiverPort, senderIP, recieverIP);
+                              int originalSenderPort, String messageText, Job jobFractal) {
+        super(MessageType.NEW_JOB_ADDED, senderPort, receiverPort, senderIP, recieverIP, messageText);
 
         this.jobFractal = jobFractal;
         this.originalSenderPort = originalSenderPort;

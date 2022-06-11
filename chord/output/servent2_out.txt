@@ -1,82 +1,33 @@
-18:13:25 - Starting servent [4|192.168.56.1|1300]
-18:13:25 - Pausing for 30000 ms
-192.168.56.1:1200:2
-18:13:26 - Sending message [4|1300|0||NEW_NODE|1200|48]
-18:13:28 - Got message [28|1100|2||WELCOME|1300|4]
-18:13:29 - Sending message [4|1300|1||UPDATE|1100|28]
-18:13:31 - Got message [4|1300|3|1100,1200|UPDATE|1300|4]
-18:13:37 - Got message [24|1400|4||NEW_NODE|1300|4]
-18:13:38 - Sending message [24|1400|2||NEW_NODE|1100|28]
-18:13:43 - Got message [24|1400|5|1100,1200|UPDATE|1300|4]
-18:13:44 - Sending message [24|1400|3|1100,1200,1300|UPDATE|1400|24]
-18:13:48 - Got message [0|1600|6||NEW_NODE|1300|4]
-18:13:49 - Sending message [4|1300|4||WELCOME|1600|0]
-18:13:50 - Got message [0|1600|1||UPDATE|1300|4]
-18:13:51 - Sending message [0|1600|5|1300|UPDATE|1400|24]
-FOR for 0
-x: [300, 100, 500] y: [100, 446, 446] for 0 size 3 l 1
-ADDED java.awt.Point[x=200,y=273] l = 2
-x: [300, 100, 500] y: [100, 446, 446] for 0 size 3 l 2
-ADDED java.awt.Point[x=400,y=273] l = 3
-FOR for 0
-x: [100, 500] y: [446, 446] for 0 size 2 l 1
-ADDED java.awt.Point[x=300,y=446] l = 2
-FOR for 0
-/*300,100,200,273,400,273
-100,446,200,273,300,446
-500,446,400,273,300,446*/
-NEW POINTS SPLIT: [java.awt.Point[x=200,y=273], java.awt.Point[x=400,y=273], java.awt.Point[x=300,y=446]]
-18:13:55 - Pausing for 10000 ms
-18:13:56 - Sending message [4|1300|6|triangle|START|1400|24]
-18:14:02 - Got message [0|1600|2||NEW_JOB_ADDED|1300|4]
-[square, triangle_1, triangle]
-18:14:02 - Got message [0|1600|3||NEW_JOB_ADDED|1300|4]
-[square, triangle_1, triangle_0, triangle]
-18:14:03 - Got message [0|1600|5||NEW_JOB_ADDED|1300|4]
-[square, triangle_1, triangle_0, triangle_3, triangle]
-18:14:03 - Got message [0|1600|4|triangle|START|1300|4]
-18:14:03 - Sending message [4|1300|7||NEW_JOB_ADDED|1400|24]
-18:14:03 - Sending message [4|1300|8||NEW_JOB_ADDED|1400|24]
-18:14:03 - Sending message [4|1300|9||NEW_JOB_ADDED|1400|24]
-18:14:05 - Pausing for 25000 ms
-18:14:08 - Got message [0|1600|6||NEW_JOB_ADDED|1300|4]
-[square, triangle_1, triangle_0, triangle_3, triangle]
-18:14:09 - Got message [0|1600|7||NEW_JOB_ADDED|1300|4]
-[square, triangle_1, triangle_0, triangle_3, triangle]
-18:14:09 - Sending message [4|1300|10||NEW_JOB_ADDED|1400|24]
-18:14:09 - Sending message [4|1300|11||NEW_JOB_ADDED|1400|24]
-18:14:10 - Got message [0|1600|8||NEW_JOB_ADDED|1300|4]
-[square, triangle_1, triangle_0, triangle_3, triangle]
-18:14:11 - Sending message [4|1300|12||NEW_JOB_ADDED|1400|24]
-18:14:14 - Got message [0|1600|9||NEW_JOB_ADDED|1300|4]
-[square, triangle_1, triangle_0, triangle_3, triangle]
-18:14:15 - Got message [0|1600|11||RESULT|1300|4]
-18:14:15 - Sending message [4|1300|13||NEW_JOB_ADDED|1400|24]
-18:14:15 - Got message [0|1600|10||NEW_JOB_ADDED|1300|4]
-[square, triangle_1, triangle_0, triangle_3, triangle]
-18:14:16 - Sending message [4|1300|14||RESULT|1400|24]
-18:14:16 - Sending message [4|1300|15||NEW_JOB_ADDED|1400|24]
-18:14:18 - Got message [0|1600|12||NEW_JOB_ADDED|1300|4]
-[square, triangle_1, triangle_0, triangle_3, triangle]
-18:14:19 - Sending message [4|1300|16||NEW_JOB_ADDED|1400|24]
-18:14:20 - Got message [0|1600|13||RESULT|1300|4]
-18:14:20 - Got message [0|1600|14||NEW_JOB_ADDED|1300|4]
-[square, triangle_1, triangle_0, triangle_3, triangle]
-18:14:21 - Sending message [4|1300|17||RESULT|1400|24]
-18:14:21 - Sending message [4|1300|18||NEW_JOB_ADDED|1400|24]
-18:14:22 - Got message [0|1600|15||NEW_JOB_ADDED|1300|4]
-[square, triangle_1, triangle_0, triangle_3, triangle]
-18:14:22 - Sending message [4|1300|19||NEW_JOB_ADDED|1400|24]
-18:14:23 - Got message [0|1600|16||NEW_JOB_ADDED|1300|4]
-[square, triangle_1, triangle_0, triangle_3, triangle]
-18:14:24 - Sending message [4|1300|20||NEW_JOB_ADDED|1400|24]
-18:14:25 - Got message [0|1600|17||NEW_JOB_ADDED|1300|4]
-[square, triangle_1, triangle_0, triangle_3, triangle]
-18:14:27 - Sending message [4|1300|21||NEW_JOB_ADDED|1400|24]
-18:14:27 - Got message [0|1600|18||NEW_JOB_ADDED|1300|4]
-[square, triangle_1, triangle_0, triangle_3, triangle]
-18:14:29 - Sending message [4|1300|22||NEW_JOB_ADDED|1400|24]
-18:14:30 - Got message [0|1600|19||NEW_JOB_ADDED|1300|4]
-[square, triangle_1, triangle_0, triangle_3, triangle]
-18:14:30 - Stopping...
-18:14:30 - Sending message [4|1300|23||NEW_JOB_ADDED|1400|24]
+20:52:10 - Starting servent [4|192.168.56.1|1300]
+20:52:10 - Pausing for 22000 ms
+192.168.56.1:1100:2
+20:52:10 - Sending message [4|1300|0||NEW_NODE|1100|28]
+20:52:11 - Got message [28|1100|2||WELCOME|1300|4]
+20:52:12 - Sending message [4|1300|1||UPDATE|1100|28]
+20:52:15 - Got message [4|1300|2|1100,1200|UPDATE|1300|4]
+20:52:21 - Got message [24|1400|0||NEW_NODE|1300|4]
+20:52:22 - Sending message [24|1400|2||NEW_NODE|1100|28]
+20:52:25 - Got message [24|1400|3|1100,1200|UPDATE|1300|4]
+20:52:26 - Sending message [24|1400|3|1100,1200,1300|UPDATE|1400|24]
+20:52:30 - Got message [0|1600|0||NEW_NODE|1300|4]
+20:52:31 - Sending message [4|1300|4||WELCOME|1600|0]
+[0, 1, 2]
+20:52:32 - Pausing for 10000 ms
+20:52:33 - Got message [0|1600|1||UPDATE|1300|4]
+20:52:33 - Sending message [4|1300|5|triangle|START|1400|24]
+20:52:34 - Sending message [0|1600|6|1300|UPDATE|1400|24]
+20:52:36 - Got message [48|1200|5|triangle|START|1300|4]
+IMA MOG POSLA
+[triangle_2, square, triangle]
+Start: java.awt.Point[x=400,y=273]
+First: java.awt.Point[x=300,y=446]
+Current: java.awt.Point[x=350,y=359]
+JOB triangle_2 DONE
+20:52:37 - Got message [48|1200|4|triangle_1|NEW_JOB_ADDED|1300|4]
+[triangle_2, square, triangle_1, triangle]
+20:52:37 - Got message [48|1200|6|triangle_0|NEW_JOB_ADDED|1300|4]
+[triangle_2, square, triangle_1, triangle_0, triangle]
+20:52:37 - Sending message [4|1300|7|triangle_2|NEW_JOB_ADDED|1400|24]
+20:52:37 - Sending message [4|1300|9|triangle_0|NEW_JOB_ADDED|1400|24]
+20:52:37 - Sending message [4|1300|8|triangle_1|NEW_JOB_ADDED|1400|24]
+20:52:42 - Stopping...

@@ -21,7 +21,8 @@ public class NewJobAddedHandler implements MessageHandler {
         if (clientMessage.getMessageType() == MessageType.NEW_JOB_ADDED) {
             NewJobAddedMessage newJobAddedMessage = (NewJobAddedMessage) clientMessage;
 
-            //if(newJobAddedMessage.getOriginalSenderPort() != AppConfig.myServentInfo.getListenerPort()) { //&&
+            if(newJobAddedMessage.getOriginalSenderPort() != AppConfig.myServentInfo.getListenerPort()) { //&&
+            //if (clientMessage.getSenderPort() != AppConfig.myServentInfo.getListenerPort()) {
 
                 Job job = newJobAddedMessage.getJobFractal();
 
@@ -31,15 +32,9 @@ public class NewJobAddedHandler implements MessageHandler {
 
                 NewJobAddedMessage newJobAddedMessage1 = new NewJobAddedMessage(AppConfig.myServentInfo.getListenerPort(), AppConfig.chordState.getNextNodePort(),
                         AppConfig.myServentInfo.getIpAddress(), AppConfig.chordState.getNextNodeIP(), newJobAddedMessage.getOriginalSenderPort(),
-                        job);
+                        job.getJobName(), job);
                 MessageUtil.sendMessage(newJobAddedMessage1);
-            /*} else {
-                Job job = newJobAddedMessage.getJobFractal();
-
-                AppConfig.jobNamesMap.put(job.getJobName(), job);
-
-                System.out.println(AppConfig.jobNamesMap.keySet());
-            }*/
+            }
         } else {
             AppConfig.timestampedErrorPrint("New job handler got a message that is not NEW_JOB_ADDED");
         }

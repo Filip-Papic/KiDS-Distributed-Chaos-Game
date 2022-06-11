@@ -85,13 +85,13 @@ public class BootstrapServer {
 					int newServentPort = Integer.parseInt(info[1]);
 					String newServentInfo = newServentIp + ":" + newServentPort;
 
-					System.out.println("BOOTSTRAP: got " + newServentIp + ":" + newServentPort);
+					AppConfig.timestampedStandardPrint("BOOTSTRAP: got " + newServentIp + ":" + newServentPort);
 					PrintWriter socketWriter = new PrintWriter(newServentSocket.getOutputStream());
 
 					if (activeServents.size() == 0) {//bootstrap salje i ip adresu i port
 						//socketWriter.write(String.valueOf(-1) + "\n");
 						socketWriter.write("-1"+ ":" + String.valueOf(-1) + ":" + 0 + "\n");
-						System.out.println("BOOTSTRAP: adding " + newServentInfo);
+						AppConfig.timestampedStandardPrint("BOOTSTRAP: adding " + newServentInfo);
 						activeServents.add(newServentInfo); //first one doesn't need to confirm
 					} else {
 						String randServent = activeServents.get(rand.nextInt(activeServents.size()));
@@ -109,7 +109,7 @@ public class BootstrapServer {
 					int newServentPort = Integer.parseInt(info[1]);
 					String newServentInfo = newServentIp + ":" + newServentPort;
 
-					System.out.println("BOOTSTRAP: adding " + newServentInfo);
+					AppConfig.timestampedStandardPrint("BOOTSTRAP: adding " + newServentInfo);
 
 					activeServents.add(newServentInfo);
 					newServentSocket.close();
@@ -122,11 +122,11 @@ public class BootstrapServer {
 					int serventPort = Integer.parseInt(info[1]);
 					String newServentInfo = serventIp + ":" + serventPort;
 
-					System.out.println("BOOTSTRAP: removing " + serventIp + ":" + serventPort);
+					AppConfig.timestampedStandardPrint("BOOTSTRAP: removing " + serventIp + ":" + serventPort);
 					PrintWriter socketWriter = new PrintWriter(newServentSocket.getOutputStream());
 
 					if (activeServents.size() == 0 || !activeServents.contains(newServentInfo)) {//!!!
-						System.out.println("BOOTSTRAP: no nodes to remove!!!");
+						AppConfig.timestampedErrorPrint("BOOTSTRAP: no nodes to remove!!!");
 					} else {
 						activeServents.remove(newServentInfo);
 					}
@@ -135,7 +135,7 @@ public class BootstrapServer {
 					socketWriter.flush();
 					newServentSocket.close();
 				} else {
-					System.out.println("BOOTSTRAP: Wrong message");
+					AppConfig.timestampedErrorPrint("BOOTSTRAP: Wrong message");
 				}
 			} catch (SocketTimeoutException e) {
 				
