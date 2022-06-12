@@ -16,18 +16,21 @@ public class JobSplit {
         List<Point> startingCoords = job.getJobCoordinates();
         //int[] x = new int[n];
         //int[] y = new int[n];
+        //int[] newXY = new int[n^2];
         List<Integer> x = new ArrayList<>();
         List<Integer> y = new ArrayList<>();
-        int[] newXY = new int[n^2];
 
         int numberOfFractals = 3; //za sad
         int freeNodes = AppConfig.SERVENT_COUNT; //ovde treba neka logika za vise fraktala u isto vreme
 
+        System.out.println("SERVENT COUNT: " + freeNodes);
+
         if(freeNodes == 0) {
             System.out.println("No free nodes!");
+            return null;
         }else if(freeNodes == 1) {
             System.out.println("Not distributed, one node free!");
-            //jobsForServentsByTheirID.put(freeNode, job); //tako nesto
+            //jobsForServentsByTheirID.put(freeNodeID, job); //tako nesto
             //return jobsForServentsByTheirID;
         }
 
@@ -52,8 +55,8 @@ public class JobSplit {
 
                 Point point = new Point();
 
-                point.x = (int) ((x.get(0) + x.get(l)) * job.getJobDistance());
-                point.y = (int) ((y.get(0) + y.get(l)) * job.getJobDistance());
+                point.x = (int) (x.get(0) + job.getJobDistance() * (x.get(l) - x.get(0)));
+                point.y = (int) (y.get(0) + job.getJobDistance() * (y.get(l) - y.get(0)));
 
                 newPoints.add(point);
                 l++;
@@ -72,6 +75,11 @@ public class JobSplit {
         /*300,100,200,273,400,273
         100,446,200,273,300,446
         500,446,400,273,300,446*/
+
+        /*Map<Integer, List<Point>> aaaaa = new HashMap<>();
+        aaaaa.put(1, startingCoords);
+        return aaaaa;*/
+
         return jobsForServentsByTheirID;
     }
 }

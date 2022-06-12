@@ -53,8 +53,10 @@ public class JobChaos implements Runnable {
         }
         Point firstTargetPoint = pointsTemp.get(random.nextInt(pointsTemp.size()));//jedna od ostalih
 
-        currentPoint.x = (int) ((startPoint.x + firstTargetPoint.x) * p);
-        currentPoint.y = (int) ((startPoint.y + firstTargetPoint.y) * p);
+        //currentPoint.x = (int) ((startPoint.x + firstTargetPoint.x) * p);
+        //currentPoint.y = (int) ((startPoint.y + firstTargetPoint.y) * p);
+        currentPoint.x = (int) ((firstTargetPoint.x - startPoint.x) * p + startPoint.x);
+        currentPoint.y = (int) ((firstTargetPoint.y - startPoint.y) * p + startPoint.y);
         System.out.println("Start: " + startPoint);
         System.out.println("First: " + firstTargetPoint);
         System.out.println("Current: " + currentPoint);
@@ -65,8 +67,10 @@ public class JobChaos implements Runnable {
         int ITERATIONS = 10000;
         for(int k = 0; k < ITERATIONS; k++){
             startPoint = points.get(random.nextInt(points.size()));
-            currentPoint.x = (int) ((startPoint.x + currentPoint.x) * p);
-            currentPoint.y = (int) ((startPoint.y + currentPoint.y) * p);
+            //currentPoint.x = (int) ((startPoint.x + currentPoint.x) * p);//mod?
+            //currentPoint.y = (int) ((startPoint.y + currentPoint.y) * p);
+            currentPoint.x = (int) ((currentPoint.x - startPoint.x) * p + startPoint.x);
+            currentPoint.y = (int) ((currentPoint.y - startPoint.y) * p + startPoint.y);
             resultPoints.add(new Point(currentPoint.x, currentPoint.y));
         }
 

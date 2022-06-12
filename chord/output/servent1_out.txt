@@ -1,31 +1,39 @@
-20:52:00 - Starting servent [48|192.168.56.1|1200]
-20:52:00 - Pausing for 50000 ms
+14:05:03 - Starting servent [48|192.168.56.1|1200]
+14:05:03 - Pausing for 10000 ms
 192.168.56.1:1100:1
-20:52:01 - Sending message [48|1200|0||NEW_NODE|1100|28]
-20:52:02 - Got message [28|1100|0||WELCOME|1200|48]
-20:52:03 - Sending message [48|1200|1||UPDATE|1100|28]
-20:52:05 - Got message [48|1200|1|1100|UPDATE|1200|48]
-20:52:13 - Got message [4|1300|3|1100|UPDATE|1200|48]
-20:52:15 - Sending message [4|1300|2|1100,1200|UPDATE|1300|4]
-20:52:25 - Got message [24|1400|5|1100|UPDATE|1200|48]
-20:52:25 - Sending message [24|1400|3|1100,1200|UPDATE|1300|4]
-20:52:35 - Got message [28|1100|7|triangle|START|1200|48]
+14:05:05 - Sending message [48|1200|0||NEW_NODE|1100|28]
+14:05:05 - Got message [28|1100|0||WELCOME|1200|48]
+14:05:07 - Sending message [48|1200|1||UPDATE|1100|28]
+14:05:07 - Got message [48|1200|1|1100|UPDATE|1200|48]
+14:05:13 - Pausing for 50000 ms
+14:05:17 - Got message [4|1300|3|1100|UPDATE|1200|48]
+14:05:18 - Sending message [4|1300|2|1100,1200|UPDATE|1300|4]
+14:05:29 - Got message [24|1400|5|1100|UPDATE|1200|48]
+14:05:30 - Sending message [24|1400|3|1100,1200|UPDATE|1300|4]
+14:05:40 - Got message [0|1600|6|1300,1400,1100|UPDATE|1200|48]
+14:05:41 - Sending message [0|1600|4|1300,1400,1100,1200|UPDATE|1600|0]
+14:05:49 - Got message [28|1100|8|hexagon|START|1200|48]
 IMA MOG POSLA
-[square, triangle_1, triangle]
-Start: java.awt.Point[x=300,y=446]
-First: java.awt.Point[x=200,y=273]
-Current: java.awt.Point[x=250,y=359]
-JOB triangle_1 DONE
-20:52:36 - Sending message [48|1200|5|triangle|START|1300|4]
-20:52:36 - Got message [28|1100|6|triangle_0|NEW_JOB_ADDED|1200|48]
-[square, triangle_1, triangle_0, triangle]
-20:52:36 - Sending message [48|1200|4|triangle_1|NEW_JOB_ADDED|1300|4]
-20:52:36 - Sending message [48|1200|6|triangle_0|NEW_JOB_ADDED|1300|4]
-20:52:37 - Got message [0|1600|8|1300,1400,1100|UPDATE|1200|48]
-20:52:38 - Sending message [0|1600|7|1300,1400,1100,1200|UPDATE|1600|0]
-20:52:40 - Got message [28|1100|10|triangle_1|NEW_JOB_ADDED|1200|48]
-20:52:41 - Got message [28|1100|9|triangle_2|NEW_JOB_ADDED|1200|48]
-[triangle_2, square, triangle_1, triangle_0, triangle]
-20:52:42 - Sending message [48|1200|8|triangle_2|NEW_JOB_ADDED|1600|0]
-20:52:50 - Pausing for 5000 ms
-20:52:55 - Stopping...
+[square, hexagon_1, hexagon, triangle]
+Start: java.awt.Point[x=200,y=260]
+First: java.awt.Point[x=125,y=154]
+Current: java.awt.Point[x=177,y=228]
+JOB hexagon_1 DONE
+NEXT NODE TO SEND START TO: 1600
+14:05:49 - Sending message [48|1200|5|hexagon_1|NEW_JOB_ADDED|1600|0]
+14:05:49 - Sending message [48|1200|6|hexagon|START|1600|0]
+14:05:49 - Got message [28|1100|7|hexagon_0|NEW_JOB_ADDED|1200|48]
+[square, hexagon_0, hexagon_1, hexagon, triangle]
+14:05:50 - Got message [28|1100|9|hexagon_3|NEW_JOB_ADDED|1200|48]
+[square, hexagon_3, hexagon_0, hexagon_1, hexagon, triangle]
+14:05:50 - Sending message [48|1200|7|hexagon_0|NEW_JOB_ADDED|1600|0]
+14:05:51 - Sending message [48|1200|8|hexagon_3|NEW_JOB_ADDED|1600|0]
+14:05:54 - Got message [28|1100|10|hexagon_4|NEW_JOB_ADDED|1200|48]
+[hexagon_4, square, hexagon_3, hexagon_0, hexagon_1, hexagon, triangle]
+14:05:55 - Got message [28|1100|12|hexagon_2|NEW_JOB_ADDED|1200|48]
+[hexagon_4, square, hexagon_3, hexagon_0, hexagon_2, hexagon_1, hexagon, triangle]
+14:05:55 - Sending message [48|1200|9|hexagon_4|NEW_JOB_ADDED|1600|0]
+14:05:55 - Got message [28|1100|11|hexagon_1|NEW_JOB_ADDED|1200|48]
+14:05:56 - Sending message [48|1200|10|hexagon_2|NEW_JOB_ADDED|1600|0]
+14:06:03 - Pausing for 5000 ms
+14:06:08 - Stopping...

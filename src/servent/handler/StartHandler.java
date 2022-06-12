@@ -32,6 +32,8 @@ public class StartHandler implements MessageHandler {
 
                 startYourJob(startMessage);
 
+                System.out.println("NEXT NODE TO SEND START TO: " + AppConfig.chordState.getNextNodePort());
+
                 StartMessage startMessageNew = new StartMessage(AppConfig.myServentInfo.getListenerPort(), AppConfig.chordState.getNextNodePort(),
                         AppConfig.myServentInfo.getIpAddress(), AppConfig.chordState.getNextNodeIP(), startMessage.getOriginalSenderPort(),
                         startMessage.getJobName(), startMessage.getIdJobMap());
@@ -45,7 +47,6 @@ public class StartHandler implements MessageHandler {
     }
 
     private void startYourJob(StartMessage startMessage){
-
         Job job = AppConfig.jobNamesMap.get(startMessage.getJobName());
         int id = AppConfig.myServentInfo.getId();
         Map<Integer, List<Point>> map = startMessage.getIdJobMap();
