@@ -1,5 +1,13 @@
+pause 15000
 pause 10000
+pause 30000
+result triangle
+result triangle 0
+result triangle 1
+result triangle 2
+result triangle 3
+result triangle 4
+result triangle 5
+result triangle 6
 pause 25000
-result hexagon
-pause 5000
 stop

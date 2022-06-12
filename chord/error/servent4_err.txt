@@ -1,1 +1,0 @@
-14:05:59 - Couldn't send message: [0|1600|7|hexagon_2|NEW_JOB_ADDED|1300|4]

@@ -14,6 +14,7 @@ public class Job implements Serializable {
     private final int jobHeight;
     private final List<Point> jobCoordinates;
     private List<Point> jobResults = new ArrayList<>(); //mapa fractal id, result
+    private String fractalName;
 
     public Job(String name, int n, double p, int w, int h, List<Point> aa) {
         this.jobName = name;
@@ -33,10 +34,17 @@ public class Job implements Serializable {
         this.jobResults = jobResults;
     }
 
+    public String getFractalName() {
+        return fractalName;
+    }
+
+    public void setFractalName(String fractalName) {
+        this.fractalName = fractalName;
+    }
+
     public String getJobName() {
         return jobName;
     }
-
 
     public int getJobPointNumber() {
         return jobPointNumber;

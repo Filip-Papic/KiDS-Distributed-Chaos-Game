@@ -10,7 +10,7 @@ public class JobResult {
 
     public static void getResult(String args){
         if(args.contains(" ")) {
-            System.out.println("RESULT : " + args);
+            AppConfig.timestampedStandardPrint("RESULT : " + args);
 
             JobImage jobImage = new JobImage();
             List<Point> jobResults = new ArrayList<>();

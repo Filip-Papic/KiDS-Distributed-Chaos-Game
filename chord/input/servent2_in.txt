@@ -1,5 +1,7 @@
+pause 15000
 pause 10000
-pause 22000
-start hexagon
+pause 25000
+start triangle
+pause 10000
 pause 10000
 stop
