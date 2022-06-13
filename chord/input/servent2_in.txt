@@ -1,6 +1,4 @@
-pause 15000
-pause 10000
-pause 25000
+pause 50000
 start triangle
 pause 10000
 pause 15000

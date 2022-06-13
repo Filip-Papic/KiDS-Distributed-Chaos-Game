@@ -9,6 +9,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import servent.message.AskGetMessage;
 import servent.message.PutMessage;
@@ -55,6 +56,15 @@ public class ChordState {
 	private List<ServentInfo> allNodeInfo;
 	
 	private Map<Integer, Integer> valueMap;
+
+	private List<String> startedJobs = new ArrayList<>();
+
+	public List<String> getStartedJobs() {
+		return startedJobs;
+	}
+	public void addStartedJobs(String startedJob) {
+		this.startedJobs.add(startedJob);
+	}
 
 	public List<ServentInfo> getAllNodeInfo() {
 		return allNodeInfo;

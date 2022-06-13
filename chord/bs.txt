@@ -1,14 +1,15 @@
-Exception in thread "Thread-0" java.util.NoSuchElementException: No line found
-	at java.base/java.util.Scanner.nextLine(Scanner.java:1651)
-	at app.BootstrapServer$CLIWorker.run(BootstrapServer.java:32)
-	at java.base/java.lang.Thread.run(Thread.java:831)
- BOOTSTRAP: got 192.168.56.1:1300
-14:40:24 - BOOTSTRAP: adding 192.168.56.1:1300
-14:40:32 - BOOTSTRAP: got 192.168.56.1:1400
-14:40:35 - BOOTSTRAP: adding 192.168.56.1:1400
-14:40:42 - BOOTSTRAP: got 192.168.56.1:1600
-14:40:45 - BOOTSTRAP: adding 192.168.56.1:1600
-14:40:52 - BOOTSTRAP: got 192.168.56.1:1700
-14:40:56 - BOOTSTRAP: adding 192.168.56.1:1700
-14:41:02 - BOOTSTRAP: got 192.168.56.1:1800
-14:41:08 - BOOTSTRAP: adding 192.168.56.1:1800
+01:39:10 - BOOTSTRAP: Bootstrap server started on port: 2000
+01:39:12 - BOOTSTRAP: got 192.168.56.1:1100
+01:39:12 - BOOTSTRAP: adding 192.168.56.1:1100
+01:39:22 - BOOTSTRAP: got 192.168.56.1:1200
+01:39:24 - BOOTSTRAP: adding 192.168.56.1:1200
+01:39:32 - BOOTSTRAP: got 192.168.56.1:1300
+01:39:36 - BOOTSTRAP: adding 192.168.56.1:1300
+01:39:42 - BOOTSTRAP: got 192.168.56.1:1400
+01:39:45 - BOOTSTRAP: adding 192.168.56.1:1400
+01:39:52 - BOOTSTRAP: got 192.168.56.1:1600
+01:39:56 - BOOTSTRAP: adding 192.168.56.1:1600
+01:40:02 - BOOTSTRAP: got 192.168.56.1:1700
+01:40:06 - BOOTSTRAP: adding 192.168.56.1:1700
+01:40:12 - BOOTSTRAP: got 192.168.56.1:1800
+01:40:18 - BOOTSTRAP: adding 192.168.56.1:1800

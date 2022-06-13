@@ -62,6 +62,10 @@ public class AppConfig {
 	public static List<Integer> ports = new ArrayList<>();
 	public static Map<String, Job> jobNamesMap = new HashMap<>();
 	public static Map<String, Map<Job, List<Point>>> jobNameResultsMap = new HashMap<>();
+	public static AtomicInteger numberOfJobsStarted = new AtomicInteger(0);
+	public static List<String> startedJobs = new ArrayList<>();
+	public static int numberOfJobsStartedInt = 0;
+	public static int position = 0;
 	
 	/**
 	 * Reads a config file. Should be called once at start of app.

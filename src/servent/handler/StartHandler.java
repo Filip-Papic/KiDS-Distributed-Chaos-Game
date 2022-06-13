@@ -31,8 +31,10 @@ public class StartHandler implements MessageHandler {
                 //clientMessage.getSenderIP() != AppConfig.myServentInfo.getIpAddress()) {
 
                 startYourJob(startMessage);
+                AppConfig.myServentInfo.setIdle(true);
 
-                StartMessage startMessageNew = new StartMessage(AppConfig.myServentInfo.getListenerPort(), AppConfig.chordState.getNextNodePort(),
+                StartMessage startMessageNew = new StartMessage(AppConfig.myServentInfo.getListenerPort(),
+                        AppConfig.chordState.getNextNodePort(),//AppConfig.chordState.getNextNodeForKey(),
                         AppConfig.myServentInfo.getIpAddress(), AppConfig.chordState.getNextNodeIP(), startMessage.getOriginalSenderPort(),
                         startMessage.getJobName(), startMessage.getIdJobMap());
                 MessageUtil.sendMessage(startMessageNew);
@@ -51,6 +53,7 @@ public class StartHandler implements MessageHandler {
 
         if(map.containsKey(id)) {
             System.out.println("IMA MOG POSLA");
+            AppConfig.myServentInfo.setIdle(false);
             List<Point> newPoints = map.get(id);
 
             String newName = job.getJobName()+"_"+id;
@@ -68,6 +71,7 @@ public class StartHandler implements MessageHandler {
 
             JobChaos.startJob(jobFractal);
         } else {
+            AppConfig.myServentInfo.setIdle(true);
             System.out.println("NEMA MOG POSLA");
         }
     }

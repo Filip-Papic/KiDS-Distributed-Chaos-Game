@@ -8,17 +8,55 @@ import java.util.List;
 
 public class JobSplit {
 
-    public static Map<Integer, List<Point>> split(String jobName) {
+    /*public static Map<Integer, List<Point>> spread(String jobName, int serventCount, int startedJobs){
+        List<Integer> serventsSpread = new ArrayList<>();
+        Map<Integer, List<Point>> jobsForServentsByTheirID = new HashMap<>();
+
+        if(serventCount < startedJobs){
+            System.out.println("not enough servents");
+        } else if(serventCount % startedJobs == 0) {
+            for(int i = 0; i < startedJobs; i++){
+                serventsSpread.add(serventCount/startedJobs);
+            }
+        } else {
+            int m = startedJobs - (serventCount % startedJobs);
+            int n = serventCount/startedJobs;
+            for(int i=0;i<startedJobs;i++) {
+                if(i>= m) {
+                    serventsSpread.add(n + 1);
+                } else {
+                    serventsSpread.add(n);
+                }
+            }
+        }
+        System.out.println(serventsSpread);//3 4
+
+        int position = 0;
+        for(Integer j : serventsSpread) {
+            Map<Integer, List<Point>> map = split(jobName, j, AppConfig.position);
+            jobsForServentsByTheirID.putAll(map);
+            AppConfig.position += j;
+        }
+
+        return jobsForServentsByTheirID;
+    }*/
+
+    public static Map<Integer, List<Point>> split(String jobName, Integer servents, int position) {
         Job job = AppConfig.jobNamesMap.get(jobName);
         int serventCount = AppConfig.chordState.getAllNodeInfo().size();//????
         int n = job.getJobPointNumber();
         Map<Integer, List<Point>> jobsForServentsByTheirID = new HashMap<>();
+//        for(int f = 0; f < position; f++){
+//            jobsForServentsByTheirID.put(f, null);
+//        }
         //int[] x = new int[n];
         //int[] y = new int[n];
         //int[] newXY = new int[n^2];
 
         int numberOfFractals = 3; //za sad
-        int freeNodes = AppConfig.SERVENT_COUNT; //ovde treba neka logika za vise poslova u isto vreme
+        int freeNodes = servents; //ovde treba neka logika za vise poslova u isto vreme
+
+        System.out.println("STARTED: " + jobName);
 
         System.out.println("SERVENT COUNT: " + freeNodes);
 
@@ -27,15 +65,25 @@ public class JobSplit {
             return null;
         }else if(freeNodes == 1) {
             System.out.println("Not distributed, one node free!");
-            //jobsForServentsByTheirID.put(freeNodeID, job); //izvuci ID od nekog slobodnog cvora
-            //return jobsForServentsByTheirID;
+            int freeNodeID = -1;
+            for(int i = 0; i < serventCount; i++) {
+                if(AppConfig.chordState.getAllNodeInfo().get(i).isIdle()){
+                    freeNodeID = AppConfig.chordState.getAllNodeInfo().get(i).getId();
+                }
+            }
+            jobsForServentsByTheirID.put(freeNodeID, job.getJobCoordinates());
+            return jobsForServentsByTheirID;
         }
 
-        if(freeNodes > n) {
-            jobsForServentsByTheirID = splitAgain(job, job.getJobCoordinates(), freeNodes);
+        if(freeNodes == n) {
+            jobsForServentsByTheirID = splitAgain(job, job.getJobCoordinates(), freeNodes, position);
+            System.out.println("111111111111111111111");
+        } else if(freeNodes > n) {
+            System.out.println("222222222222222222222");
+            jobsForServentsByTheirID = splitAgain(job, job.getJobCoordinates(), freeNodes, position);
 
             freeNodes -= n;
-            int k = 0;
+            int k = position;
             if(freeNodes % (n-1) == 0) {
                 List<Point> newPoints;
                 Map<Integer, List<Point>> map;
@@ -48,12 +96,12 @@ public class JobSplit {
 
                     System.out.println("NEW MAP SIZE: " + jobsForServentsByTheirID.keySet());
 
-                    map = splitAgain(job, newPoints, freeNodes);
-                    jobsForServentsByTheirID.put(k, map.get(0));
+                    map = splitAgain(job, newPoints, freeNodes, 0);
+                    jobsForServentsByTheirID.put(k, map.get(position));
                     map.remove(0);
 
                     for(int i = 1; i <= map.size(); i++){
-                        jobsForServentsByTheirID.put(jobsForServentsByTheirID.size(), map.get(i));
+                        jobsForServentsByTheirID.put(jobsForServentsByTheirID.size() + k, map.get(i));
                     }
 
                     k++;
@@ -64,8 +112,9 @@ public class JobSplit {
             }
 
         } else {
+            System.out.println("3333333333333333333");
             int rest = n - freeNodes;
-            int k = 0;
+            int k = position;
             if(rest % (n-1) == 0) {
                 List<Point> newPoints;
                 Map<Integer, List<Point>> map;
@@ -76,21 +125,28 @@ public class JobSplit {
 
                     System.out.println("NEW MAP SIZE: " + jobsForServentsByTheirID.keySet());
 
-                    map = splitAgain(job, newPoints, freeNodes);
-                    jobsForServentsByTheirID.put(k, map.get(0));//AppConfig.chordState.getValue(k)
+                    map = splitAgain(job, newPoints, freeNodes, 0);
+                    jobsForServentsByTheirID.put(k, map.get(position));//AppConfig.chordState.getValue(k)
 
                     map.remove(0);
 
                     for (int i = 1; i <= map.size(); i++) {
-                        jobsForServentsByTheirID.put(jobsForServentsByTheirID.size(), map.get(i));//AppConfig.chordState.getValue(jobsForServentsByTheirID.size())
+                        jobsForServentsByTheirID.put(jobsForServentsByTheirID.size() + k, map.get(i));//AppConfig.chordState.getValue(jobsForServentsByTheirID.size())
                     }
 
                     freeNodes -= n - 1;
                 }
             } else {
+                System.out.println("4444444444444444444444");
                 jobsForServentsByTheirID.put(0, job.getJobCoordinates());
                 System.out.println(jobsForServentsByTheirID);
-                //jobsForServentsByTheirID.put(freeNodeID, job); //izvuci ID od nekog slobodnog cvora
+                int freeNodeID = -1;
+                for(int i = 0; i < serventCount; i++) {
+                    if(AppConfig.chordState.getAllNodeInfo().get(i).isIdle()){
+                        freeNodeID = AppConfig.chordState.getAllNodeInfo().get(i).getId();
+                    }
+                }
+                jobsForServentsByTheirID.put(freeNodeID, job.getJobCoordinates());
                 return jobsForServentsByTheirID;
             }
         }
@@ -100,7 +156,7 @@ public class JobSplit {
         return jobsForServentsByTheirID;
     }
 
-    private static Map<Integer, List<Point>> splitAgain(Job job, List<Point> startingCords, int freeNodes) {
+    private static Map<Integer, List<Point>> splitAgain(Job job, List<Point> startingCords, int freeNodes, int position) {
         Map<Integer, List<Point>> map = new HashMap<>();
         int n = job.getJobPointNumber();
         List<Integer> x = new ArrayList<>();
@@ -135,7 +191,9 @@ public class JobSplit {
                 g++;
             }
 
-            map.put(i, newPoints);//ID cvora i njegove kordinate za posao
+            int gg = i + position;
+            map.put(gg, newPoints);//ID cvora i njegove kordinate za posao
+            System.out.println("PUT IN MAP IN SPLIT2: " + gg);
             freeNodes--;
         }
         return map;

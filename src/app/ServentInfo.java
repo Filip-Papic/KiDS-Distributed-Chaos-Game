@@ -15,6 +15,7 @@ public class ServentInfo implements Serializable {
 	private final int listenerPort;
 	private final int chordId;
 	private int id;
+	private boolean idle = true;
 
 	public ServentInfo(String ipAddress, int listenerPort) {
 		this.ipAddress = ipAddress;
@@ -40,6 +41,14 @@ public class ServentInfo implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public boolean isIdle() {
+		return idle;
+	}
+
+	public void setIdle(boolean idle) {
+		this.idle = idle;
 	}
 
 	@Override
