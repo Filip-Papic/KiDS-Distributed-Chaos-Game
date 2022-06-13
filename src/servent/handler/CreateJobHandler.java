@@ -21,7 +21,7 @@ public class CreateJobHandler implements MessageHandler {
     @Override
     public void run() {
         if(clientMessage.getMessageType() == MessageType.CREATE) {
-            if (clientMessage.getSenderPort() != AppConfig.myServentInfo.getListenerPort()) {
+            /*if (clientMessage.getSenderPort() != AppConfig.myServentInfo.getListenerPort()) {
                 CreateJobMessage createJobMessage = (CreateJobMessage) clientMessage;
 
                 NewJobCreator newJobCreator = new NewJobCreator();
@@ -31,7 +31,7 @@ public class CreateJobHandler implements MessageHandler {
                         AppConfig.myServentInfo.getIpAddress(), AppConfig.chordState.getNextNodeIP(), AppConfig.myServentInfo.getListenerPort(),
                         job.getJobName(), null);    //!!!!!!!!!!!!!!!!!!!!!!!                            //!!!!!!!!!!!!
                 MessageUtil.sendMessage(startMessage);
-            }
+            }*/
         }
 
     }

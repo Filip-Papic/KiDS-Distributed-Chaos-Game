@@ -55,10 +55,10 @@ public class MultipleServentStarter {
 					}
 					bsProcess.destroy();
 					break;
-				} else if (line.equals("start")) {
-					StartCommand startCommand = new StartCommand();
-					startCommand.execute(null);
-				} else if (line.startsWith("start ")) {
+				//} else if (line.equals("start")) {
+				//	StartCommand startCommand = new StartCommand();
+				//	startCommand.execute(null);
+				/*} else if (line.startsWith("start ")) {
 					String jobName = line.split(" ")[1];
 					StartCommand startCommand = new StartCommand();
 					startCommand.execute(jobName);
@@ -67,7 +67,7 @@ public class MultipleServentStarter {
 				} else if (line.startsWith("result ")) {
 					String jobName = line.split(" ")[1];
 					ResultCommand resultCommand = new ResultCommand();
-					resultCommand.execute(jobName);
+					resultCommand.execute(jobName);*/
 				}
 			}
 
@@ -91,8 +91,8 @@ public class MultipleServentStarter {
 		ProcessBuilder bsBuilder = new ProcessBuilder("java", "-cp", "out\\production\\KiDS-vezbe9-Sofija", "app.BootstrapServer", String.valueOf(AppConfig.BOOTSTRAP_PORT));
 		try {
 			//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!asdasdasdasdasdasdasdasdasd
-			bsBuilder.redirectOutput(new File(testName + "/bs.txt"));
-			bsBuilder.redirectError(new File(testName + "/bs.txt"));
+			//bsBuilder.redirectOutput(new File(testName + "/bs.txt"));
+			//bsBuilder.redirectError(new File(testName + "/bs.txt"));
 			//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!asdasdasdasdasdasdasdasdasd
 			bsProcess = bsBuilder.start();
 		} catch (IOException e1) {

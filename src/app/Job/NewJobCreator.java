@@ -2,6 +2,8 @@ package app.Job;
 
 import app.AppConfig;
 import app.Job.Job;
+import servent.message.NewJobAddedMessage;
+import servent.message.util.MessageUtil;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -11,8 +13,8 @@ import java.util.Scanner;
 
 public class NewJobCreator {
 
-    public Job createJob() {
-        Scanner scanner = new Scanner(System.in);
+    public Job createJob(Scanner scanner) {
+        //Scanner scanner = new Scanner(System.in);
         //AppConfig.newJobFlag = true;
         Job job = null;
         try {
@@ -61,8 +63,16 @@ public class NewJobCreator {
             job = new Job(jobName, n, p, w, h, coords);
             AppConfig.jobList.add(job);
             AppConfig.jobNames.add(jobName);
+            AppConfig.jobNamesMap.put(jobName, job);
             System.out.println(job);
             System.out.println("Current available jobs: " + AppConfig.jobNames);
+
+            NewJobAddedMessage newJobAddedMessage = new NewJobAddedMessage(AppConfig.myServentInfo.getListenerPort(), AppConfig.chordState.getNextNodePort(),
+                    AppConfig.myServentInfo.getIpAddress(), AppConfig.chordState.getNextNodeIP(), AppConfig.myServentInfo.getListenerPort(),
+                    job.getJobName(), job);
+            MessageUtil.sendMessage(newJobAddedMessage);
+
+            JobChaos.startJob(job);
             //AppConfig.newJobFlag = false;
         } catch (InputMismatchException e) {
             System.out.println("Wrong type of input");

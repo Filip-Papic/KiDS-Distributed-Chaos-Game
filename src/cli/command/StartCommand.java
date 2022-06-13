@@ -2,15 +2,14 @@ package cli.command;
 
 import app.AppConfig;
 import app.Job.*;
+import cli.CLIParser;
 import servent.message.CreateJobMessage;
 import servent.message.StartMessage;
 import servent.message.util.MessageUtil;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
 
 public class StartCommand implements CLICommand {
 
@@ -25,9 +24,11 @@ public class StartCommand implements CLICommand {
     @Override
     public void execute(String args) {//RADI KAD DODAM U MultiServentStarter
         if (args == null) {//unesi novi posao sam
-            CreateJobMessage createJobMessage = new CreateJobMessage(AppConfig.myServentInfo.getListenerPort(), AppConfig.chordState.getNextNodePort(),
-                    AppConfig.myServentInfo.getIpAddress(), AppConfig.chordState.getNextNodeIP());
-            MessageUtil.sendMessage(createJobMessage);
+            NewJobCreator newJobCreator = new NewJobCreator();
+            newJobCreator.createJob(CLIParser.sc);
+            //CreateJobMessage createJobMessage = new CreateJobMessage(AppConfig.myServentInfo.getListenerPort(), AppConfig.chordState.getNextNodePort(),
+            //        AppConfig.myServentInfo.getIpAddress(), AppConfig.chordState.getNextNodeIP());
+            //MessageUtil.sendMessage(createJobMessage);
         } else {
             if (!AppConfig.jobNames.contains(args)) {
                 System.out.println(AppConfig.jobNames);

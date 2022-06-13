@@ -32,7 +32,7 @@ public class CLIParser implements Runnable, Cancellable {
 	private volatile boolean working = true;
 	
 	private final List<CLICommand> commandList;
-	private Scanner sc;
+	public static Scanner sc;
 	public CLIParser(SimpleServentListener listener) {
 		this.commandList = new ArrayList<>();
 
@@ -45,10 +45,6 @@ public class CLIParser implements Runnable, Cancellable {
 		commandList.add(new QuitCommand(this, listener));
 		commandList.add(new StartCommand());
 		commandList.add(new ResultCommand());
-	}
-
-	public Scanner getSc() {
-		return sc;
 	}
 
 	@Override

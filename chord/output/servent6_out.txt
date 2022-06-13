@@ -1,37 +1,39 @@
-13:29:17 - Starting servent [40|192.168.56.1|1800]
-13:29:17 - Pausing for 40000 ms
-Hash ID: 4
-192.168.56.1:1300:6
-13:29:18 - Sending message [40|1800|0||NEW_NODE|1300|4]
-13:29:22 - Got message [48|1200|8||WELCOME|1800|40]
-13:29:23 - Sending message [40|1800|1||UPDATE|1200|48]
-13:29:29 - Got message [40|1800|9|1200,1600,1300,1700,1400,1100|UPDATE|1800|40]
-13:29:32 - Got message [28|1100|10|triangle_5|NEW_JOB_ADDED|1800|40]
-[square, triangle_5, hexagon, triangle]
-13:29:32 - Got message [28|1100|12|triangle|START|1800|40]
+16:08:11 - Starting servent [40|192.168.56.1|1800]
+16:08:11 - Pausing for 40000 ms
+IP: 192.168.56.1
+0
+Hash ID: 20 old: 1700
+192.168.56.1:1700:6
+16:08:12 - Sending message [40|1800|0||NEW_NODE|1700|20]
+16:08:15 - Got message [48|1200|9||WELCOME|1800|40]
+16:08:16 - Sending message [40|1800|1||UPDATE|1200|48]
+16:08:22 - Got message [40|1800|9|1200,1600,1300,1700,1400,1100|UPDATE|1800|40]
+16:08:26 - Got message [28|1100|10|triangle_3|NEW_JOB_ADDED|1800|40]
+[square, triangle_3, hexagon, triangle]
+16:08:26 - Got message [28|1100|12|triangle|START|1800|40]
 IMA MOG POSLA
-[square, triangle_6, triangle_5, hexagon, triangle]
+[square, triangle_6, triangle_3, hexagon, triangle]
 Start: java.awt.Point[x=200,y=446]
 First: java.awt.Point[x=250,y=359]
 Current: java.awt.Point[x=225,y=402]
 JOB triangle_6 DONE
-13:29:33 - Got message [28|1100|13|triangle_3|NEW_JOB_ADDED|1800|40]
-[square, triangle_6, triangle_5, triangle_3, hexagon, triangle]
-13:29:33 - Got message [28|1100|11|triangle_0|NEW_JOB_ADDED|1800|40]
+16:08:27 - Got message [28|1100|11|triangle_0|NEW_JOB_ADDED|1800|40]
+[square, triangle_0, triangle_6, triangle_3, hexagon, triangle]
+16:08:27 - Sending message [40|1800|3|triangle_6|NEW_JOB_ADDED|1200|48]
+16:08:27 - Sending message [40|1800|4|triangle|START|1200|48]
+16:08:27 - Got message [28|1100|13|triangle_5|NEW_JOB_ADDED|1800|40]
 [square, triangle_0, triangle_6, triangle_5, triangle_3, hexagon, triangle]
-13:29:33 - Sending message [40|1800|4|triangle|START|1200|48]
-13:29:33 - Sending message [40|1800|2|triangle_5|NEW_JOB_ADDED|1200|48]
-13:29:34 - Sending message [40|1800|3|triangle_6|NEW_JOB_ADDED|1200|48]
-13:29:34 - Sending message [40|1800|5|triangle_3|NEW_JOB_ADDED|1200|48]
-13:29:34 - Sending message [40|1800|6|triangle_0|NEW_JOB_ADDED|1200|48]
-13:29:41 - Got message [28|1100|14|triangle_2|NEW_JOB_ADDED|1800|40]
-[triangle_2, square, triangle_0, triangle_6, triangle_5, triangle_3, hexagon, triangle]
-13:29:41 - Got message [28|1100|15|triangle_1|NEW_JOB_ADDED|1800|40]
+16:08:28 - Sending message [40|1800|5|triangle_0|NEW_JOB_ADDED|1200|48]
+16:08:28 - Sending message [40|1800|2|triangle_3|NEW_JOB_ADDED|1200|48]
+16:08:29 - Sending message [40|1800|6|triangle_5|NEW_JOB_ADDED|1200|48]
+16:08:35 - Got message [28|1100|15|triangle_1|NEW_JOB_ADDED|1800|40]
+[square, triangle_1, triangle_0, triangle_6, triangle_5, triangle_3, hexagon, triangle]
+16:08:36 - Got message [28|1100|14|triangle_2|NEW_JOB_ADDED|1800|40]
 [triangle_2, square, triangle_1, triangle_0, triangle_6, triangle_5, triangle_3, hexagon, triangle]
-13:29:42 - Got message [28|1100|16|triangle_4|NEW_JOB_ADDED|1800|40]
+16:08:36 - Got message [28|1100|16|triangle_6|NEW_JOB_ADDED|1800|40]
+16:08:36 - Got message [28|1100|17|triangle_4|NEW_JOB_ADDED|1800|40]
 [triangle_2, square, triangle_1, triangle_0, triangle_6, triangle_5, triangle_4, triangle_3, hexagon, triangle]
-13:29:42 - Sending message [40|1800|7|triangle_2|NEW_JOB_ADDED|1200|48]
-13:29:42 - Sending message [40|1800|8|triangle_1|NEW_JOB_ADDED|1200|48]
-13:29:43 - Sending message [40|1800|9|triangle_4|NEW_JOB_ADDED|1200|48]
-13:29:43 - Got message [28|1100|17|triangle_6|NEW_JOB_ADDED|1800|40]
-13:29:57 - Stopping...
+16:08:36 - Sending message [40|1800|8|triangle_2|NEW_JOB_ADDED|1200|48]
+16:08:37 - Sending message [40|1800|9|triangle_4|NEW_JOB_ADDED|1200|48]
+16:08:37 - Sending message [40|1800|7|triangle_1|NEW_JOB_ADDED|1200|48]
+16:08:51 - Stopping...

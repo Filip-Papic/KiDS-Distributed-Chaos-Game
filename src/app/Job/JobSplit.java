@@ -18,7 +18,7 @@ public class JobSplit {
         //int[] newXY = new int[n^2];
 
         int numberOfFractals = 3; //za sad
-        int freeNodes = AppConfig.SERVENT_COUNT; //ovde treba neka logika za vise fraktala u isto vreme
+        int freeNodes = AppConfig.SERVENT_COUNT; //ovde treba neka logika za vise poslova u isto vreme
 
         System.out.println("SERVENT COUNT: " + freeNodes);
 
@@ -65,23 +65,24 @@ public class JobSplit {
 
         } else {
             int rest = n - freeNodes;
+            int k = 0;
             if(rest % (n-1) == 0) {
                 List<Point> newPoints;
                 Map<Integer, List<Point>> map;
                 System.out.println("ima jos free nodova: " + freeNodes);
                 while (freeNodes != 0) {
-                    newPoints = jobsForServentsByTheirID.get(0);
-                    jobsForServentsByTheirID.remove(0);
+                    newPoints = jobsForServentsByTheirID.get(k);
+                    jobsForServentsByTheirID.remove(k);
 
                     System.out.println("NEW MAP SIZE: " + jobsForServentsByTheirID.keySet());
 
                     map = splitAgain(job, newPoints, freeNodes);
-                    jobsForServentsByTheirID.put(0, map.get(0));
+                    jobsForServentsByTheirID.put(k, map.get(0));//AppConfig.chordState.getValue(k)
 
                     map.remove(0);
 
                     for (int i = 1; i <= map.size(); i++) {
-                        jobsForServentsByTheirID.put(jobsForServentsByTheirID.size(), map.get(i));
+                        jobsForServentsByTheirID.put(jobsForServentsByTheirID.size(), map.get(i));//AppConfig.chordState.getValue(jobsForServentsByTheirID.size())
                     }
 
                     freeNodes -= n - 1;

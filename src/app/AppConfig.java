@@ -59,6 +59,7 @@ public class AppConfig {
 	public static ChordState chordState;
 	public static AtomicInteger ID = new AtomicInteger(-1);
 	public static Boolean newJobFlag = false;
+	public static List<Integer> ports = new ArrayList<>();
 	public static Map<String, Job> jobNamesMap = new HashMap<>();
 	public static Map<String, Map<Job, List<Point>>> jobNameResultsMap = new HashMap<>();
 	
@@ -146,6 +147,19 @@ public class AppConfig {
 			System.exit(0);
 		}
 
+		String portProperty = "servent"+serventId+".port";
+
+		int serventPort = -1;
+
+		try {
+			serventPort = Integer.parseInt(properties.getProperty(portProperty));
+		} catch (NumberFormatException e) {
+			timestampedErrorPrint("Problem reading " + portProperty + ". Exiting...");
+			System.exit(0);
+		}
+
+		myServentInfo = new ServentInfo(BOOTSTRAP_IP, serventPort);
+
 		int jobs_count = 0;
 		try {
 			jobs_count = Integer.parseInt(properties.getProperty("jobs_count"));
@@ -185,18 +199,6 @@ public class AppConfig {
 			}
 		}
 
-		String portProperty = "servent"+serventId+".port";
-		
-		int serventPort = -1;
-		
-		try {
-			serventPort = Integer.parseInt(properties.getProperty(portProperty));
-		} catch (NumberFormatException e) {
-			timestampedErrorPrint("Problem reading " + portProperty + ". Exiting...");
-			System.exit(0);
-		}
-		
-		myServentInfo = new ServentInfo(BOOTSTRAP_IP, serventPort);
 	}
 
 }

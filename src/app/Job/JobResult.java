@@ -35,7 +35,7 @@ public class JobResult {
             jobImage.imageResult(jobNew);
         } else {
             System.out.println("RESULT : " + args);
-
+            System.out.println("Current available results: " + AppConfig.jobNamesMap.keySet() + " this job: " + args);
             JobImage jobImage = new JobImage();
             List<Point> jobResults = new ArrayList<>();
             String jobName = args;

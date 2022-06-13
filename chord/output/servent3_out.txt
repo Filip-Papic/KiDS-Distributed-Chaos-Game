@@ -1,71 +1,74 @@
-13:28:47 - Starting servent [24|192.168.56.1|1400]
-13:28:47 - Pausing for 15000 ms
-Hash ID: 48
+16:07:41 - Starting servent [24|192.168.56.1|1400]
+16:07:41 - Pausing for 15000 ms
+IP: 192.168.56.1
+0
+Hash ID: 48 old: 1200
 192.168.56.1:1200:3
-13:28:48 - Sending message [24|1400|0||NEW_NODE|1200|48]
-13:28:51 - Got message [28|1100|4||WELCOME|1400|24]
-13:28:52 - Sending message [24|1400|1||UPDATE|1100|28]
-13:28:55 - Got message [24|1400|3|1100,1200,1300|UPDATE|1400|24]
-13:29:01 - Got message [0|1600|5|1300|UPDATE|1400|24]
-13:29:02 - Sending message [0|1600|2|1300,1400|UPDATE|1100|28]
-13:29:02 - Pausing for 10000 ms
-13:29:10 - Got message [20|1700|6||NEW_NODE|1400|24]
-13:29:10 - Sending message [24|1400|3||WELCOME|1700|20]
-13:29:11 - Got message [20|1700|1||UPDATE|1400|24]
-13:29:12 - Pausing for 30000 ms
-13:29:13 - Sending message [20|1700|4|1400|UPDATE|1100|28]
-13:29:27 - Got message [40|1800|3|1200,1600,1300,1700|UPDATE|1400|24]
-13:29:28 - Sending message [40|1800|5|1200,1600,1300,1700,1400|UPDATE|1100|28]
-13:29:29 - Got message [20|1700|4|triangle_5|NEW_JOB_ADDED|1400|24]
-[square, triangle_5, hexagon, triangle]
-13:29:29 - Got message [20|1700|5|triangle|START|1400|24]
+16:07:42 - Sending message [24|1400|0||NEW_NODE|1200|48]
+16:07:46 - Got message [28|1100|4||WELCOME|1400|24]
+16:07:47 - Sending message [24|1400|1||UPDATE|1100|28]
+16:07:50 - Got message [24|1400|3|1100,1200,1300|UPDATE|1400|24]
+16:07:55 - Got message [0|1600|5|1300|UPDATE|1400|24]
+16:07:56 - Pausing for 10000 ms
+16:07:56 - Sending message [0|1600|2|1300,1400|UPDATE|1100|28]
+16:08:04 - Got message [20|1700|6||NEW_NODE|1400|24]
+16:08:06 - Sending message [24|1400|3||WELCOME|1700|20]
+16:08:06 - Pausing for 30000 ms
+16:08:07 - Got message [20|1700|1||UPDATE|1400|24]
+16:08:08 - Sending message [20|1700|4|1400|UPDATE|1100|28]
+16:08:19 - Got message [40|1800|3|1200,1600,1300,1700|UPDATE|1400|24]
+16:08:21 - Sending message [40|1800|5|1200,1600,1300,1700,1400|UPDATE|1100|28]
+16:08:23 - Got message [20|1700|5|triangle|START|1400|24]
 IMA MOG POSLA
-[square, triangle_5, triangle_3, hexagon, triangle]
+[square, triangle_3, hexagon, triangle]
 Start: java.awt.Point[x=250,y=186]
-First: java.awt.Point[x=200,y=273]
-Current: java.awt.Point[x=225,y=229]
+First: java.awt.Point[x=300,y=273]
+Current: java.awt.Point[x=275,y=229]
 JOB triangle_3 DONE
-13:29:31 - Sending message [24|1400|6|triangle_5|NEW_JOB_ADDED|1100|28]
-13:29:31 - Sending message [24|1400|8|triangle|START|1100|28]
-13:29:31 - Sending message [24|1400|7|triangle_3|NEW_JOB_ADDED|1100|28]
-13:29:39 - Got message [20|1700|7|triangle_4|NEW_JOB_ADDED|1400|24]
-[square, triangle_5, triangle_4, triangle_3, hexagon, triangle]
-13:29:39 - Got message [20|1700|6|triangle_2|NEW_JOB_ADDED|1400|24]
-[triangle_2, square, triangle_5, triangle_4, triangle_3, hexagon, triangle]
-13:29:39 - Got message [20|1700|8|triangle_1|NEW_JOB_ADDED|1400|24]
-[triangle_2, square, triangle_1, triangle_5, triangle_4, triangle_3, hexagon, triangle]
-13:29:40 - Sending message [24|1400|10|triangle_2|NEW_JOB_ADDED|1100|28]
-13:29:40 - Sending message [24|1400|11|triangle_1|NEW_JOB_ADDED|1100|28]
-13:29:40 - Got message [20|1700|9|triangle_3|NEW_JOB_ADDED|1400|24]
-13:29:40 - Sending message [24|1400|9|triangle_4|NEW_JOB_ADDED|1100|28]
-13:29:40 - Got message [20|1700|10|triangle_6|NEW_JOB_ADDED|1400|24]
-[triangle_2, square, triangle_1, triangle_6, triangle_5, triangle_4, triangle_3, hexagon, triangle]
-13:29:41 - Got message [20|1700|11|triangle_0|NEW_JOB_ADDED|1400|24]
+16:08:24 - Sending message [24|1400|6|triangle_3|NEW_JOB_ADDED|1100|28]
+16:08:25 - Sending message [24|1400|7|triangle|START|1100|28]
+16:08:25 - Got message [20|1700|4|triangle_5|NEW_JOB_ADDED|1400|24]
+[square, triangle_5, triangle_3, hexagon, triangle]
+16:08:26 - Sending message [24|1400|8|triangle_5|NEW_JOB_ADDED|1100|28]
+16:08:33 - Got message [20|1700|6|triangle_2|NEW_JOB_ADDED|1400|24]
+[triangle_2, square, triangle_5, triangle_3, hexagon, triangle]
+16:08:33 - Got message [20|1700|7|triangle_0|NEW_JOB_ADDED|1400|24]
+[triangle_2, square, triangle_0, triangle_5, triangle_3, hexagon, triangle]
+16:08:33 - Got message [20|1700|8|triangle_1|NEW_JOB_ADDED|1400|24]
+[triangle_2, square, triangle_1, triangle_0, triangle_5, triangle_3, hexagon, triangle]
+16:08:33 - Got message [20|1700|9|triangle_6|NEW_JOB_ADDED|1400|24]
+[triangle_2, square, triangle_1, triangle_0, triangle_6, triangle_5, triangle_3, hexagon, triangle]
+16:08:34 - Sending message [24|1400|10|triangle_0|NEW_JOB_ADDED|1100|28]
+16:08:34 - Sending message [24|1400|9|triangle_2|NEW_JOB_ADDED|1100|28]
+16:08:34 - Sending message [24|1400|11|triangle_1|NEW_JOB_ADDED|1100|28]
+16:08:34 - Got message [20|1700|10|triangle_4|NEW_JOB_ADDED|1400|24]
 [triangle_2, square, triangle_1, triangle_0, triangle_6, triangle_5, triangle_4, triangle_3, hexagon, triangle]
-13:29:41 - Sending message [24|1400|13|triangle_0|NEW_JOB_ADDED|1100|28]
-13:29:42 - Sending message [24|1400|12|triangle_6|NEW_JOB_ADDED|1100|28]
+16:08:34 - Sending message [24|1400|12|triangle_6|NEW_JOB_ADDED|1100|28]
+16:08:34 - Got message [20|1700|11|triangle_3|NEW_JOB_ADDED|1400|24]
+16:08:35 - Sending message [24|1400|13|triangle_4|NEW_JOB_ADDED|1100|28]
 RESULT : triangle
+Current available results: [triangle_2, square, triangle_1, triangle_0, triangle_6, triangle_5, triangle_4, triangle_3, hexagon, triangle] this job: triangle
 Created image: triangle
-13:29:42 - RESULT : triangle 0
+16:08:37 - RESULT : triangle 0
 [triangle_2, square, triangle_1, triangle_0, triangle_6, triangle_5, triangle_4, triangle_3, hexagon, triangle]
 Created image: triangle_0
-13:29:42 - RESULT : triangle 1
+16:08:37 - RESULT : triangle 1
 [triangle_2, square, triangle_1, triangle_0, triangle_6, triangle_5, triangle_4, triangle_3, hexagon, triangle]
 Created image: triangle_1
-13:29:43 - RESULT : triangle 2
+16:08:37 - RESULT : triangle 2
 [triangle_2, square, triangle_1, triangle_0, triangle_6, triangle_5, triangle_4, triangle_3, hexagon, triangle]
 Created image: triangle_2
-13:29:43 - RESULT : triangle 3
+16:08:37 - RESULT : triangle 3
 [triangle_2, square, triangle_1, triangle_0, triangle_6, triangle_5, triangle_4, triangle_3, hexagon, triangle]
 Created image: triangle_3
-13:29:43 - RESULT : triangle 4
+16:08:37 - RESULT : triangle 4
 [triangle_2, square, triangle_1, triangle_0, triangle_6, triangle_5, triangle_4, triangle_3, hexagon, triangle]
 Created image: triangle_4
-13:29:43 - RESULT : triangle 5
+16:08:37 - RESULT : triangle 5
 [triangle_2, square, triangle_1, triangle_0, triangle_6, triangle_5, triangle_4, triangle_3, hexagon, triangle]
 Created image: triangle_5
-13:29:43 - RESULT : triangle 6
+16:08:37 - RESULT : triangle 6
 [triangle_2, square, triangle_1, triangle_0, triangle_6, triangle_5, triangle_4, triangle_3, hexagon, triangle]
 Created image: triangle_6
-13:29:43 - Pausing for 25000 ms
-13:30:08 - Stopping...
+16:08:37 - Pausing for 25000 ms
+16:09:02 - Stopping...

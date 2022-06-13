@@ -43,14 +43,18 @@ public class ServentInitializer implements Runnable {
 		String ip = someServentPort.split(":")[0];
 		int id = Integer.parseInt(someServentPort.split(":")[2]);
 
+		System.out.println("IP: " + ip);
 		String[] ipSplit = ip.split(".");
+		int [] arr = new int [ipSplit.length];
 		int ID = 0;
-		for(String i : ipSplit){
-			ID += Integer.parseInt(i);
+		for(int i = 0; i < ipSplit.length; i++){
+			arr[i] = Integer.parseInt(ipSplit[i]);
+			ID += arr[i];
 		}
+		System.out.println(ID);
 		ID += port;
 		int hashID = ChordState.chordHash(ID);
-		System.out.println("Hash ID: " + hashID);
+		System.out.println("Hash ID: " + hashID + " old: " + ID);
 
 		if (someServentPort.equals("err")) {
 			AppConfig.timestampedErrorPrint("Error in contacting bootstrap. Exiting...");
