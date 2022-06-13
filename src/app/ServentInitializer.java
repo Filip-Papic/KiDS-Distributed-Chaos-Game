@@ -43,13 +43,22 @@ public class ServentInitializer implements Runnable {
 		String ip = someServentPort.split(":")[0];
 		int id = Integer.parseInt(someServentPort.split(":")[2]);
 
+		String[] ipSplit = ip.split(".");
+		int ID = 0;
+		for(String i : ipSplit){
+			ID += Integer.parseInt(i);
+		}
+		ID += port;
+		int hashID = ChordState.chordHash(ID);
+		System.out.println("Hash ID: " + hashID);
+
 		if (someServentPort.equals("err")) {
 			AppConfig.timestampedErrorPrint("Error in contacting bootstrap. Exiting...");
 			System.exit(0);
 		}
 		if (port == -1) { //bootstrap gave us -1 -> we are first
 			//AppConfig.chordState.getAllNodeInfo().add(AppConfig.myServentInfo); //BRISI!!!!!!!!!!!!!!!
-			AppConfig.myServentInfo.setId(0);
+			AppConfig.myServentInfo.setId(id);
 			AppConfig.timestampedStandardPrint("First node in Chord system.");
 			System.out.println(someServentPort);
 		} else { //bootstrap gave us something else - let that node tell our successor that we are here

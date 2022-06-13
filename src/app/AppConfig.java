@@ -146,30 +146,30 @@ public class AppConfig {
 			System.exit(0);
 		}
 
-		int jobs = 0;
+		int jobs_count = 0;
 		try {
-			jobs = Integer.parseInt(properties.getProperty("jobs"));
+			jobs_count = Integer.parseInt(properties.getProperty("jobs_count"));
 		} catch (NumberFormatException e) {
 			timestampedErrorPrint("Problem reading number of jobs. Exiting...");
 			System.exit(0);
 		}
 
-		for(int i = 1; i <= jobs; i++){
+		for(int i = 1; i <= jobs_count; i++){
 			try {
-				String name = properties.getProperty("job"+i+".name");
-				int n = Integer.parseInt(properties.getProperty("job" + i + ".n"));
+				String name = properties.getProperty("name" + i);
+				int n = Integer.parseInt(properties.getProperty("n" + i));
 				if (n < 3 || n > 10) {
 					timestampedErrorPrint("Number of points must be between 3 and 10. Exiting...");
 					System.exit(0);
 				}
-				double p = Float.parseFloat(properties.getProperty("job"+i+".p"));
+				double p = Float.parseFloat(properties.getProperty("p" + i));
 				if(p < 0 || p > 1){
 					timestampedErrorPrint("Distance must be between 0 and 1. Exiting...");
 					System.exit(0);
 				}
-				int w = Integer.parseInt(properties.getProperty("job"+i+".w"));
-				int h = Integer.parseInt(properties.getProperty("job"+i+".h"));
-				String[] a = properties.getProperty("job"+i+".a").split(",");
+				int w = Integer.parseInt(properties.getProperty("w" + i));
+				int h = Integer.parseInt(properties.getProperty("h" + i));
+				String[] a = properties.getProperty("a" + i).split(",");
 				List<Point> aa = new ArrayList<>();
 				for(int j = 0; j < a.length; j+=2){
 					aa.add(new Point(Integer.parseInt(a[j]), Integer.parseInt(a[j+1])));
