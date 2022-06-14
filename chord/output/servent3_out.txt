@@ -1,22 +1,25 @@
-14:07:37 - Starting servent [24|192.168.56.1|1400]
-14:07:37 - Pausing for 15000 ms
-192.168.56.1:1200:3
-14:07:38 - Sending message [24|1400|0||NEW_NODE|1200|48]
-14:07:41 - Got message [28|1100|4||WELCOME|1400|24]
-14:07:42 - Sending message [24|1400|1||UPDATE|1100|28]
-14:07:45 - Got message [24|1400|3|1100,1200,1300|UPDATE|1400|24]
-14:07:52 - Pausing for 10000 ms
-14:07:52 - Got message [0|1600|5|1300|UPDATE|1400|24]
-14:07:53 - Sending message [0|1600|2|1300,1400|UPDATE|1100|28]
-14:08:02 - Pausing for 30000 ms
-14:08:18 - Got message [4|1300|6|hexagon|START|1400|24]
-NEMA MOG POSLA
-14:08:19 - Sending message [24|1400|3|hexagon|START|1100|28]
-14:08:26 - Got message [4|1300|7|hexagon_0|NEW_JOB_ADDED|1400|24]
-[square, hexagon_0, hexagon, triangle]
-14:08:27 - Sending message [24|1400|4|hexagon_0|NEW_JOB_ADDED|1100|28]
-RESULT : hexagon
-Current available results: [square, hexagon_0, hexagon, triangle] this job: hexagon
-Created image: hexagon
-14:08:32 - Pausing for 25000 ms
-14:08:57 - Stopping...
+16:12:40 - Starting servent [24|192.168.56.1|1400]
+16:12:40 - Pausing for 15000 ms
+192.168.56.1:1100:3
+16:12:41 - Sending message [24|1400|0||NEW_NODE|1100|28]
+16:12:43 - Got message [28|1100|4||WELCOME|1400|24]
+16:12:43 - Sending message [24|1400|1||UPDATE|1100|28]
+16:12:47 - Got message [24|1400|2|1100,1200,1300|UPDATE|1400|24]
+16:12:55 - Pausing for 10000 ms
+16:12:56 - Got message [0|1600|4|1300|UPDATE|1400|24]
+16:12:57 - Sending message [0|1600|2|1300,1400|UPDATE|1100|28]
+16:13:05 - Got message [20|1700|5||NEW_NODE|1400|24]
+16:13:06 - Pausing for 30000 ms
+16:13:06 - Sending message [24|1400|3||WELCOME|1700|20]
+16:13:08 - Got message [20|1700|1||UPDATE|1400|24]
+16:13:09 - Sending message [20|1700|4|1400|UPDATE|1100|28]
+16:13:20 - Got message [40|1800|3|1200,1600,1300,1700|UPDATE|1400|24]
+16:13:21 - Sending message [40|1800|5|1200,1600,1300,1700,1400|UPDATE|1100|28]
+16:13:24 - Got message [20|1700|4|abc|NEW_JOB_ADDED|1400|24]
+[square, abc, hexagon, triangle]
+16:13:25 - Sending message [24|1400|6|abc|NEW_JOB_ADDED|1100|28]
+RESULT : abc
+Current available results: [square, abc, hexagon, triangle] this job: abc
+Created image: abc
+16:13:36 - Pausing for 25000 ms
+16:14:01 - Stopping...

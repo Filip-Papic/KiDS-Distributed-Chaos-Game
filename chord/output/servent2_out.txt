@@ -1,29 +1,38 @@
-14:07:27 - Starting servent [4|192.168.56.1|1300]
-14:07:27 - Pausing for 50000 ms
+16:12:30 - Starting servent [4|192.168.56.1|1300]
+16:12:30 - Pausing for 50000 ms
 192.168.56.1:1200:2
-14:07:28 - Sending message [4|1300|0||NEW_NODE|1200|48]
-14:07:30 - Got message [28|1100|2||WELCOME|1300|4]
-14:07:31 - Sending message [4|1300|1||UPDATE|1100|28]
-14:07:32 - Got message [4|1300|3|1100,1200|UPDATE|1300|4]
-14:07:39 - Got message [24|1400|4||NEW_NODE|1300|4]
-14:07:40 - Sending message [24|1400|2||NEW_NODE|1100|28]
-14:07:44 - Got message [24|1400|5|1100,1200|UPDATE|1300|4]
-14:07:45 - Sending message [24|1400|3|1100,1200,1300|UPDATE|1400|24]
-14:07:49 - Got message [0|1600|6||NEW_NODE|1300|4]
-14:07:50 - Sending message [4|1300|4||WELCOME|1600|0]
-14:07:51 - Got message [0|1600|1||UPDATE|1300|4]
-14:07:52 - Sending message [0|1600|5|1300|UPDATE|1400|24]
-STARTED: hexagon
-SERVENT COUNT: 5
-3333333333333333333
-4444444444444444444444
-{0=[java.awt.Point[x=300,y=50], java.awt.Point[x=50,y=200], java.awt.Point[x=50,y=400], java.awt.Point[x=300,y=550], java.awt.Point[x=550,y=400], java.awt.Point[x=550,y=200]]}
-14:08:17 - Pausing for 10000 ms
-14:08:18 - Sending message [4|1300|6|hexagon|START|1400|24]
-14:08:23 - Got message [0|1600|2|hexagon|START|1300|4]
-NEMA MOG POSLA
-14:08:24 - Got message [0|1600|3|hexagon_0|NEW_JOB_ADDED|1300|4]
-[square, hexagon_0, hexagon, triangle]
-14:08:26 - Sending message [4|1300|7|hexagon_0|NEW_JOB_ADDED|1400|24]
-14:08:27 - Pausing for 15000 ms
-14:08:42 - Stopping...
+16:12:31 - Sending message [4|1300|0||NEW_NODE|1200|48]
+16:12:33 - Got message [28|1100|2||WELCOME|1300|4]
+16:12:34 - Sending message [4|1300|1||UPDATE|1100|28]
+16:12:36 - Got message [4|1300|3|1100,1200|UPDATE|1300|4]
+16:12:46 - Got message [24|1400|4|1100,1200|UPDATE|1300|4]
+16:12:47 - Sending message [24|1400|2|1100,1200,1300|UPDATE|1400|24]
+16:12:53 - Got message [0|1600|5||NEW_NODE|1300|4]
+16:12:54 - Sending message [4|1300|3||WELCOME|1600|0]
+16:12:54 - Got message [0|1600|1||UPDATE|1300|4]
+16:12:56 - Sending message [0|1600|4|1300|UPDATE|1400|24]
+16:13:04 - Got message [20|1700|2||NEW_NODE|1300|4]
+16:13:05 - Sending message [20|1700|5||NEW_NODE|1400|24]
+16:13:11 - Got message [20|1700|3|1400,1100,1200,1600|UPDATE|1300|4]
+16:13:11 - Sending message [20|1700|6|1400,1100,1200,1600,1300|UPDATE|1700|20]
+16:13:11 - Got message [40|1800|0||NEW_NODE|1300|4]
+16:13:12 - Sending message [40|1800|7||NEW_NODE|1700|20]
+16:13:17 - Got message [40|1800|4|1200,1600|UPDATE|1300|4]
+16:13:19 - Sending message [40|1800|8|1200,1600,1300|UPDATE|1700|20]
+Enter job name:
+Enter number of fractal points: 
+Enter job distance: 
+Enter width (integer): 
+Enter height (integer): 
+Enter point coordinates. Use comma after each: 
+Job{jobName='abc', jobPointNumber=3, jobDistance=0.3, jobWidth=600, jobHeight=600, jobCoordinates=[java.awt.Point[x=300,y=100], java.awt.Point[x=100,y=446], java.awt.Point[x=500,y=446]]}
+Current available jobs: [triangle, square, hexagon, abc]
+Start: java.awt.Point[x=100,y=446]
+First: java.awt.Point[x=300,y=100]
+Current: java.awt.Point[x=160,y=342]
+JOB abc DONE
+16:13:21 - Pausing for 10000 ms
+16:13:21 - Sending message [4|1300|9|abc|NEW_JOB_ADDED|1700|20]
+16:13:31 - Pausing for 15000 ms
+16:13:31 - Got message [0|1600|5|abc|NEW_JOB_ADDED|1300|4]
+16:13:46 - Stopping...

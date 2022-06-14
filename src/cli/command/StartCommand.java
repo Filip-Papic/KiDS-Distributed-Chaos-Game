@@ -4,6 +4,7 @@ import app.AppConfig;
 import app.Job.*;
 import cli.CLIParser;
 import servent.message.CreateJobMessage;
+import servent.message.JobStartedMessage;
 import servent.message.StartMessage;
 import servent.message.util.MessageUtil;
 
@@ -23,6 +24,27 @@ public class StartCommand implements CLICommand {
 
     @Override
     public void execute(String args) {//RADI KAD DODAM U MultiServentStarter
+        /*AppConfig.chordState.incrementStartedJobs();
+        AppConfig.chordState.setStartedJobName(args);
+
+        JobStartedMessage jsm = new JobStartedMessage(AppConfig.myServentInfo.getListenerPort(), AppConfig.chordState.getNextNodePort(),
+                AppConfig.myServentInfo.getIpAddress(), AppConfig.chordState.getNextNodeIP(),  AppConfig.myServentInfo.getListenerPort(),
+                AppConfig.flag);
+        MessageUtil.sendMessage(jsm);
+
+        System.out.println("Waiting...");
+        while(!AppConfig.chordState.isStartedJobsBool()){
+            try {
+                System.out.println(AppConfig.chordState.isStartedJobsBool());
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("Done waiting");
+
+        if (AppConfig.chordState.getStartedJobs().get() > 1){
+        */
         if (args == null) {//unesi novi posao sam
             NewJobCreator newJobCreator = new NewJobCreator();
             newJobCreator.createJob(CLIParser.sc);

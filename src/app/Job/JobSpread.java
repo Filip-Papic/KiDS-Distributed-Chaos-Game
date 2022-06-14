@@ -43,7 +43,6 @@ public class JobSpread {
                 System.out.println(AppConfig.jobNames);
                 System.out.println("Job with that name does not exist: " + jobName);
             } else {
-                AppConfig.chordState.addStartedJobs(jobName);
 
                 int j = serventsSpread.get(l);
                 Map<Integer, List<Point>> jobsForServentsByTheirID = JobSplit.split(jobName, j, position);

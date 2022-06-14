@@ -57,17 +57,31 @@ public class ChordState {
 	
 	private Map<Integer, Integer> valueMap;
 
-	private List<String> startedJobs = new ArrayList<>();
-
-	public List<String> getStartedJobs() {
-		return startedJobs;
-	}
-	public void addStartedJobs(String startedJob) {
-		this.startedJobs.add(startedJob);
-	}
-
 	public List<ServentInfo> getAllNodeInfo() {
 		return allNodeInfo;
+	}
+
+	private AtomicInteger startedJobs = new AtomicInteger(0);
+	private String startedJobName;
+	private volatile boolean startedJobsBool;
+
+	public void incrementStartedJobs() {
+		this.startedJobs.incrementAndGet();
+	}
+	public AtomicInteger getStartedJobs() {
+		return startedJobs;
+	}
+	public boolean isStartedJobsBool() {
+		return startedJobsBool;
+	}
+	public void setStartedJobsBool(boolean startedJobsBool) {
+		this.startedJobsBool = startedJobsBool;
+	}
+	public void setStartedJobName(String startedJobName) {
+		this.startedJobName = startedJobName;
+	}
+	public String getStartedJobName() {
+		return startedJobName;
 	}
 
 	public ChordState() {

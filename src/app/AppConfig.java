@@ -66,7 +66,7 @@ public class AppConfig {
 	public static List<String> startedJobs = new ArrayList<>();
 	public static int numberOfJobsStartedInt = 0;
 	public static int position = 0;
-	
+	public static int flag = 0;
 	/**
 	 * Reads a config file. Should be called once at start of app.
 	 * The config file should be of the following format:
