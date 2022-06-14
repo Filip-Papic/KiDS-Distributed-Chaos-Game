@@ -31,7 +31,7 @@ public class JobChaos implements Runnable {
         }
     }
 
-    public static void startJob(Job job){ //static
+    public static Job startJob(Job job){ //static
         List<Point> resultPoints = new ArrayList<>();//CopyOnWriteArrayList<>();
         Random random = new Random();
         int n = job.getJobPointNumber();
@@ -82,5 +82,7 @@ public class JobChaos implements Runnable {
         map.put(job, resultPoints);
         AppConfig.jobNameResultsMap.put(job.getJobName(), map);//mape: ime, job, result
         System.out.println("JOB " + job.getJobName() +  " DONE");
+
+        return job;
     }
 }

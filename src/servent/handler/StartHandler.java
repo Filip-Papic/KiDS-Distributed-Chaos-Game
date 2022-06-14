@@ -64,12 +64,13 @@ public class StartHandler implements MessageHandler {
 
             System.out.println(AppConfig.jobNamesMap.keySet());
 
+            Job job1 = JobChaos.startJob(jobFractal);
+
             NewJobAddedMessage newJobAddedMessage = new NewJobAddedMessage(AppConfig.myServentInfo.getListenerPort(), AppConfig.chordState.getNextNodePort(),
                     AppConfig.myServentInfo.getIpAddress(), AppConfig.chordState.getNextNodeIP(), AppConfig.myServentInfo.getListenerPort(),
-                    jobFractal.getJobName(), jobFractal);
+                    job1.getJobName(), job1);
             MessageUtil.sendMessage(newJobAddedMessage);
 
-            JobChaos.startJob(jobFractal);
         } else {
             AppConfig.myServentInfo.setIdle(true);
             System.out.println("NEMA MOG POSLA");

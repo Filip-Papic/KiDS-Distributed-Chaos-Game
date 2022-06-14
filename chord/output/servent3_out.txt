@@ -1,25 +1,27 @@
-18:59:10 - Starting servent [24|192.168.56.1|1400]
-18:59:10 - Pausing for 15000 ms
-192.168.56.1:1200:3
-18:59:11 - Sending message [24|1400|0||NEW_NODE|1200|48]
-18:59:14 - Got message [28|1100|4||WELCOME|1400|24]
-18:59:15 - Sending message [24|1400|1||UPDATE|1100|28]
-18:59:18 - Got message [24|1400|3|1100,1200,1300|UPDATE|1400|24]
-18:59:25 - Pausing for 10000 ms
-18:59:26 - Got message [0|1600|5|1300|UPDATE|1400|24]
-18:59:27 - Sending message [0|1600|2|1300,1400|UPDATE|1100|28]
-18:59:34 - Got message [20|1700|6||NEW_NODE|1400|24]
-18:59:35 - Sending message [24|1400|3||WELCOME|1700|20]
-18:59:35 - Pausing for 30000 ms
-18:59:36 - Got message [20|1700|1||UPDATE|1400|24]
-18:59:37 - Sending message [20|1700|4|1400|UPDATE|1100|28]
-18:59:51 - Got message [40|1800|3|1200,1600,1300,1700|UPDATE|1400|24]
-18:59:52 - Sending message [40|1800|5|1200,1600,1300,1700,1400|UPDATE|1100|28]
-18:59:53 - Got message [20|1700|4|cli|NEW_JOB_ADDED|1400|24]
+20:38:06 - Starting servent [24|192.168.56.1|1400]
+20:38:06 - Pausing for 15000 ms
+192.168.56.1:1100:3
+20:38:07 - Sending message [24|1400|0||NEW_NODE|1100|28]
+20:38:07 - Got message [28|1100|4||WELCOME|1400|24]
+20:38:09 - Sending message [24|1400|1||UPDATE|1100|28]
+20:38:13 - Got message [24|1400|2|1100,1200,1300|UPDATE|1400|24]
+20:38:17 - Got message [0|1600|0||NEW_NODE|1400|24]
+20:38:17 - Sending message [0|1600|2||NEW_NODE|1100|28]
+20:38:21 - Pausing for 10000 ms
+20:38:22 - Got message [0|1600|4|1300|UPDATE|1400|24]
+20:38:23 - Sending message [0|1600|3|1300,1400|UPDATE|1100|28]
+20:38:30 - Got message [20|1700|5||NEW_NODE|1400|24]
+20:38:31 - Sending message [24|1400|4||WELCOME|1700|20]
+20:38:31 - Pausing for 30000 ms
+20:38:32 - Got message [20|1700|1||UPDATE|1400|24]
+20:38:33 - Sending message [20|1700|5|1400|UPDATE|1100|28]
+20:38:46 - Got message [40|1800|3|1200,1600,1300,1700|UPDATE|1400|24]
+20:38:47 - Sending message [40|1800|6|1200,1600,1300,1700,1400|UPDATE|1100|28]
+20:38:48 - Got message [20|1700|4|cli|NEW_JOB_ADDED|1400|24]
 [square, cli, hexagon, triangle]
-18:59:54 - Sending message [24|1400|6|cli|NEW_JOB_ADDED|1100|28]
+20:38:49 - Sending message [24|1400|7|cli|NEW_JOB_ADDED|1100|28]
 RESULT : cli
 Current available results: [square, cli, hexagon, triangle] this job: cli
 Created image: cli
-19:00:05 - Pausing for 25000 ms
-19:00:30 - Stopping...
+20:39:01 - Pausing for 25000 ms
+20:39:26 - Stopping...

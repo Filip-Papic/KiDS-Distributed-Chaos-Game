@@ -27,7 +27,6 @@ public class NewJobAddedHandler implements MessageHandler {
                 Job job = newJobAddedMessage.getJobFractal();
 
                 AppConfig.jobNamesMap.put(job.getJobName(), job);
-
                 System.out.println(AppConfig.jobNamesMap.keySet());
 
                 NewJobAddedMessage newJobAddedMessage1 = new NewJobAddedMessage(AppConfig.myServentInfo.getListenerPort(), AppConfig.chordState.getNextNodePort(),
