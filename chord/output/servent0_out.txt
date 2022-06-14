@@ -1,30 +1,32 @@
-16:12:10 - Starting servent [28|192.168.56.1|1100]
-16:12:10 - Pausing for 25000 ms
-16:12:10 - First node in Chord system.
+18:58:40 - Starting servent [28|192.168.56.1|1100]
+18:58:40 - Pausing for 25000 ms
+18:58:40 - First node in Chord system.
 -1:-1:0
-16:12:22 - Got message [48|1200|0||NEW_NODE|1100|28]
-16:12:23 - Sending message [28|1100|0||WELCOME|1200|48]
-16:12:24 - Got message [48|1200|1||UPDATE|1100|28]
-16:12:25 - Sending message [48|1200|1|1100|UPDATE|1200|48]
-16:12:32 - Got message [4|1300|2||NEW_NODE|1100|28]
-16:12:33 - Sending message [28|1100|2||WELCOME|1300|4]
-16:12:34 - Got message [4|1300|1||UPDATE|1100|28]
-16:12:35 - Sending message [4|1300|3|1100|UPDATE|1200|48]
-16:12:35 - Pausing for 10000 ms
-16:12:42 - Got message [24|1400|0||NEW_NODE|1100|28]
-16:12:43 - Sending message [28|1100|4||WELCOME|1400|24]
-16:12:43 - Got message [24|1400|1||UPDATE|1100|28]
-16:12:45 - Sending message [24|1400|5|1100|UPDATE|1200|48]
-16:12:45 - Pausing for 55000 ms
-16:12:57 - Got message [0|1600|2|1300,1400|UPDATE|1100|28]
-16:12:58 - Sending message [0|1600|6|1300,1400,1100|UPDATE|1200|48]
-16:13:09 - Got message [20|1700|4|1400|UPDATE|1100|28]
-16:13:09 - Sending message [20|1700|7|1400,1100|UPDATE|1200|48]
-16:13:13 - Got message [40|1800|2||NEW_NODE|1100|28]
-16:13:14 - Sending message [40|1800|8||NEW_NODE|1200|48]
-16:13:21 - Got message [40|1800|5|1200,1600,1300,1700,1400|UPDATE|1100|28]
-16:13:22 - Sending message [40|1800|9|1200,1600,1300,1700,1400,1100|UPDATE|1800|40]
-16:13:26 - Got message [24|1400|6|abc|NEW_JOB_ADDED|1100|28]
-[square, abc, hexagon, triangle]
-16:13:26 - Sending message [28|1100|10|abc|NEW_JOB_ADDED|1800|40]
-16:13:40 - Stopping...
+18:58:51 - Got message [48|1200|0||NEW_NODE|1100|28]
+18:58:52 - Sending message [28|1100|0||WELCOME|1200|48]
+18:58:53 - Got message [48|1200|1||UPDATE|1100|28]
+18:58:54 - Sending message [48|1200|1|1100|UPDATE|1200|48]
+18:59:01 - Got message [4|1300|0||NEW_NODE|1100|28]
+18:59:01 - Sending message [28|1100|2||WELCOME|1300|4]
+18:59:03 - Got message [4|1300|1||UPDATE|1100|28]
+18:59:04 - Sending message [4|1300|3|1100|UPDATE|1200|48]
+18:59:05 - Pausing for 10000 ms
+18:59:13 - Got message [24|1400|2||NEW_NODE|1100|28]
+18:59:14 - Sending message [28|1100|4||WELCOME|1400|24]
+18:59:15 - Pausing for 55000 ms
+18:59:15 - Got message [24|1400|1||UPDATE|1100|28]
+18:59:16 - Sending message [24|1400|5|1100|UPDATE|1200|48]
+18:59:21 - Got message [0|1600|0||NEW_NODE|1100|28]
+18:59:22 - Sending message [0|1600|6||NEW_NODE|1200|48]
+18:59:27 - Got message [0|1600|2|1300,1400|UPDATE|1100|28]
+18:59:28 - Sending message [0|1600|7|1300,1400,1100|UPDATE|1200|48]
+18:59:37 - Got message [20|1700|4|1400|UPDATE|1100|28]
+18:59:38 - Sending message [20|1700|8|1400,1100|UPDATE|1200|48]
+18:59:43 - Got message [40|1800|2||NEW_NODE|1100|28]
+18:59:44 - Sending message [40|1800|9||NEW_NODE|1200|48]
+18:59:52 - Got message [40|1800|5|1200,1600,1300,1700,1400|UPDATE|1100|28]
+18:59:53 - Sending message [40|1800|10|1200,1600,1300,1700,1400,1100|UPDATE|1800|40]
+18:59:55 - Got message [24|1400|6|cli|NEW_JOB_ADDED|1100|28]
+[square, cli, hexagon, triangle]
+18:59:56 - Sending message [28|1100|11|cli|NEW_JOB_ADDED|1800|40]
+19:00:10 - Stopping...

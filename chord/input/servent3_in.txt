@@ -1,6 +1,6 @@
 pause 15000
 pause 10000
 pause 30000
-result triangle
+result cli
 pause 25000
 stop

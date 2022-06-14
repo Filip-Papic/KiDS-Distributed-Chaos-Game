@@ -1,38 +1,38 @@
-16:12:30 - Starting servent [4|192.168.56.1|1300]
-16:12:30 - Pausing for 50000 ms
-192.168.56.1:1200:2
-16:12:31 - Sending message [4|1300|0||NEW_NODE|1200|48]
-16:12:33 - Got message [28|1100|2||WELCOME|1300|4]
-16:12:34 - Sending message [4|1300|1||UPDATE|1100|28]
-16:12:36 - Got message [4|1300|3|1100,1200|UPDATE|1300|4]
-16:12:46 - Got message [24|1400|4|1100,1200|UPDATE|1300|4]
-16:12:47 - Sending message [24|1400|2|1100,1200,1300|UPDATE|1400|24]
-16:12:53 - Got message [0|1600|5||NEW_NODE|1300|4]
-16:12:54 - Sending message [4|1300|3||WELCOME|1600|0]
-16:12:54 - Got message [0|1600|1||UPDATE|1300|4]
-16:12:56 - Sending message [0|1600|4|1300|UPDATE|1400|24]
-16:13:04 - Got message [20|1700|2||NEW_NODE|1300|4]
-16:13:05 - Sending message [20|1700|5||NEW_NODE|1400|24]
-16:13:11 - Got message [20|1700|3|1400,1100,1200,1600|UPDATE|1300|4]
-16:13:11 - Sending message [20|1700|6|1400,1100,1200,1600,1300|UPDATE|1700|20]
-16:13:11 - Got message [40|1800|0||NEW_NODE|1300|4]
-16:13:12 - Sending message [40|1800|7||NEW_NODE|1700|20]
-16:13:17 - Got message [40|1800|4|1200,1600|UPDATE|1300|4]
-16:13:19 - Sending message [40|1800|8|1200,1600,1300|UPDATE|1700|20]
+18:59:00 - Starting servent [4|192.168.56.1|1300]
+18:59:00 - Pausing for 50000 ms
+192.168.56.1:1100:2
+18:59:01 - Sending message [4|1300|0||NEW_NODE|1100|28]
+18:59:01 - Got message [28|1100|2||WELCOME|1300|4]
+18:59:03 - Sending message [4|1300|1||UPDATE|1100|28]
+18:59:05 - Got message [4|1300|2|1100,1200|UPDATE|1300|4]
+18:59:12 - Got message [24|1400|3||NEW_NODE|1300|4]
+18:59:13 - Sending message [24|1400|2||NEW_NODE|1100|28]
+18:59:17 - Got message [24|1400|4|1100,1200|UPDATE|1300|4]
+18:59:18 - Sending message [24|1400|3|1100,1200,1300|UPDATE|1400|24]
+18:59:23 - Got message [0|1600|5||NEW_NODE|1300|4]
+18:59:23 - Sending message [4|1300|4||WELCOME|1600|0]
+18:59:25 - Got message [0|1600|1||UPDATE|1300|4]
+18:59:26 - Sending message [0|1600|5|1300|UPDATE|1400|24]
+18:59:32 - Got message [20|1700|2||NEW_NODE|1300|4]
+18:59:34 - Sending message [20|1700|6||NEW_NODE|1400|24]
+18:59:40 - Got message [20|1700|3|1400,1100,1200,1600|UPDATE|1300|4]
+18:59:41 - Sending message [20|1700|7|1400,1100,1200,1600,1300|UPDATE|1700|20]
+18:59:49 - Got message [40|1800|4|1200,1600|UPDATE|1300|4]
+18:59:49 - Sending message [40|1800|8|1200,1600,1300|UPDATE|1700|20]
 Enter job name:
 Enter number of fractal points: 
 Enter job distance: 
 Enter width (integer): 
 Enter height (integer): 
 Enter point coordinates. Use comma after each: 
-Job{jobName='abc', jobPointNumber=3, jobDistance=0.3, jobWidth=600, jobHeight=600, jobCoordinates=[java.awt.Point[x=300,y=100], java.awt.Point[x=100,y=446], java.awt.Point[x=500,y=446]]}
-Current available jobs: [triangle, square, hexagon, abc]
-Start: java.awt.Point[x=100,y=446]
-First: java.awt.Point[x=300,y=100]
-Current: java.awt.Point[x=160,y=342]
-JOB abc DONE
-16:13:21 - Pausing for 10000 ms
-16:13:21 - Sending message [4|1300|9|abc|NEW_JOB_ADDED|1700|20]
-16:13:31 - Pausing for 15000 ms
-16:13:31 - Got message [0|1600|5|abc|NEW_JOB_ADDED|1300|4]
-16:13:46 - Stopping...
+Job{jobName='cli', jobPointNumber=3, jobDistance=0.3, jobWidth=600, jobHeight=600, jobCoordinates=[java.awt.Point[x=300,y=100], java.awt.Point[x=100,y=446], java.awt.Point[x=500,y=446]]}
+Current available jobs: [triangle, square, hexagon, cli]
+Start: java.awt.Point[x=300,y=100]
+First: java.awt.Point[x=500,y=446]
+Current: java.awt.Point[x=360,y=203]
+JOB cli DONE
+18:59:50 - Pausing for 10000 ms
+18:59:51 - Sending message [4|1300|9|cli|NEW_JOB_ADDED|1700|20]
+19:00:00 - Pausing for 15000 ms
+19:00:01 - Got message [0|1600|5|cli|NEW_JOB_ADDED|1300|4]
+19:00:15 - Stopping...

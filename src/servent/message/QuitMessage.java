@@ -1,11 +1,23 @@
 package servent.message;
 
+import app.ServentInfo;
+
 public class QuitMessage extends BasicMessage {
-    public QuitMessage(MessageType type, int senderPort, int receiverPort, String senderIP, String recieverIP) {
-        super(type, senderPort, receiverPort, senderIP, recieverIP);
+
+    private ServentInfo serventInfo;
+    private int originalSenderPort;
+
+    public QuitMessage(int senderPort, int receiverPort, String senderIP, String recieverIP, int originalSenderPort ,ServentInfo serventInfo) {
+        super(MessageType.QUIT, senderPort, receiverPort, senderIP, recieverIP);
+        this.originalSenderPort = originalSenderPort;
+        this.serventInfo = serventInfo;
     }
 
-    public QuitMessage(MessageType type, int senderPort, int receiverPort, String senderIP, String recieverIP, String messageText) {
-        super(type, senderPort, receiverPort, senderIP, recieverIP, messageText);
+    public ServentInfo getServentInfo() {
+        return serventInfo;
+    }
+
+    public int getOriginalSenderPort() {
+        return originalSenderPort;
     }
 }

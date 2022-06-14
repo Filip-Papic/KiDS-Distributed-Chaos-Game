@@ -16,13 +16,14 @@ public class JobChaos implements Runnable {
 
     //private final int ITERATIONS = 10000;
     private AtomicBoolean sleep;
+    public static List<Point> statusPoints = new ArrayList<>();
 
     @Override
     public void run() {
         while(true) {
             if (sleep.get()) {
                 try {
-                    Thread.sleep(500);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -75,6 +76,7 @@ public class JobChaos implements Runnable {
         }
 
         job.setJobResults(resultPoints);
+        statusPoints = resultPoints;
 
         Map<Job, List<Point>> map = new HashMap<>();
         map.put(job, resultPoints);

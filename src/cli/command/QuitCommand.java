@@ -4,6 +4,8 @@ import app.AppConfig;
 import app.ChordState;
 import cli.CLIParser;
 import servent.SimpleServentListener;
+import servent.message.QuitMessage;
+import servent.message.util.MessageUtil;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -41,9 +43,15 @@ public class QuitCommand implements CLICommand {
             e.printStackTrace();
         }
 
-        //QuitMessage quitMessage =  URADI AAAAAAAAAAA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
         AppConfig.timestampedStandardPrint("Bootstrap is removing this node...");
+        AppConfig.SERVENT_COUNT -= 1;
+        AppConfig.chordState.getAllNodeInfo().remove(AppConfig.myServentInfo);
+
+        QuitMessage quitMessage = new QuitMessage(AppConfig.myServentInfo.getListenerPort(), AppConfig.chordState.getNextNodePort(),
+                AppConfig.myServentInfo.getIpAddress(), AppConfig.chordState.getNextNodeIP(),
+                AppConfig.myServentInfo.getListenerPort(), AppConfig.myServentInfo);
+        MessageUtil.sendMessage(quitMessage);
+
         parser.stop();
         listener.stop();
     }

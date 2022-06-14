@@ -1,19 +1,19 @@
-16:12:50 - Starting servent [0|192.168.56.1|1600]
-16:12:50 - Pausing for 15000 ms
-192.168.56.1:1200:4
-16:12:51 - Sending message [0|1600|0||NEW_NODE|1200|48]
-16:12:54 - Got message [4|1300|3||WELCOME|1600|0]
-16:12:54 - Sending message [0|1600|1||UPDATE|1300|4]
-16:12:59 - Got message [0|1600|6|1300,1400,1100,1200|UPDATE|1600|0]
-16:13:03 - Got message [20|1700|7||NEW_NODE|1600|0]
-16:13:04 - Sending message [20|1700|2||NEW_NODE|1300|4]
-16:13:06 - Pausing for 10000 ms
-16:13:10 - Got message [20|1700|8|1400,1100,1200|UPDATE|1600|0]
-16:13:11 - Sending message [20|1700|3|1400,1100,1200,1600|UPDATE|1300|4]
-16:13:16 - Pausing for 30000 ms
-16:13:17 - Got message [40|1800|10|1200|UPDATE|1600|0]
-16:13:17 - Sending message [40|1800|4|1200,1600|UPDATE|1300|4]
-16:13:30 - Got message [48|1200|11|abc|NEW_JOB_ADDED|1600|0]
-[square, abc, hexagon, triangle]
-16:13:31 - Sending message [0|1600|5|abc|NEW_JOB_ADDED|1300|4]
-16:13:46 - Stopping...
+18:59:20 - Starting servent [0|192.168.56.1|1600]
+18:59:20 - Pausing for 15000 ms
+192.168.56.1:1100:4
+18:59:21 - Sending message [0|1600|0||NEW_NODE|1100|28]
+18:59:23 - Got message [4|1300|4||WELCOME|1600|0]
+18:59:25 - Sending message [0|1600|1||UPDATE|1300|4]
+18:59:30 - Got message [0|1600|6|1300,1400,1100,1200|UPDATE|1600|0]
+18:59:32 - Got message [20|1700|7||NEW_NODE|1600|0]
+18:59:32 - Sending message [20|1700|2||NEW_NODE|1300|4]
+18:59:35 - Pausing for 10000 ms
+18:59:39 - Got message [20|1700|8|1400,1100,1200|UPDATE|1600|0]
+18:59:40 - Sending message [20|1700|3|1400,1100,1200,1600|UPDATE|1300|4]
+18:59:45 - Pausing for 30000 ms
+18:59:47 - Got message [40|1800|10|1200|UPDATE|1600|0]
+18:59:49 - Sending message [40|1800|4|1200,1600|UPDATE|1300|4]
+18:59:59 - Got message [48|1200|11|cli|NEW_JOB_ADDED|1600|0]
+[square, cli, hexagon, triangle]
+19:00:00 - Sending message [0|1600|5|cli|NEW_JOB_ADDED|1300|4]
+19:00:15 - Stopping...
