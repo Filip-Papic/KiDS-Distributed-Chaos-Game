@@ -84,6 +84,7 @@ public class JobSplit {
 
             freeNodes -= n;
             int k = position;
+            int h = position;
             if(freeNodes % (n-1) == 0) {
                 List<Point> newPoints;
                 Map<Integer, List<Point>> map;
@@ -94,14 +95,14 @@ public class JobSplit {
                     newPoints = jobsForServentsByTheirID.get(k);
                     jobsForServentsByTheirID.remove(k);
 
-                    System.out.println("NEW MAP SIZE: " + jobsForServentsByTheirID.keySet());
-
                     map = splitAgain(job, newPoints, freeNodes, 0);
+
                     jobsForServentsByTheirID.put(k, map.get(position));
                     map.remove(0);
 
                     for(int i = 1; i <= map.size(); i++){
-                        jobsForServentsByTheirID.put(jobsForServentsByTheirID.size() + k, map.get(i));
+                        System.out.println("put: " + jobsForServentsByTheirID.size() + "   " + map.get(i));
+                        jobsForServentsByTheirID.put(jobsForServentsByTheirID.size() + h, map.get(i));
                     }
 
                     k++;
@@ -115,6 +116,7 @@ public class JobSplit {
             System.out.println("3333333333333333333");
             int rest = n - freeNodes;
             int k = position;
+            int h = position;
             if(rest % (n-1) == 0) {
                 List<Point> newPoints;
                 Map<Integer, List<Point>> map;
@@ -123,16 +125,19 @@ public class JobSplit {
                     newPoints = jobsForServentsByTheirID.get(k);
                     jobsForServentsByTheirID.remove(k);
 
-                    System.out.println("NEW MAP SIZE: " + jobsForServentsByTheirID.keySet());
+                    System.out.println("NEW MAP SIZE 1: " + jobsForServentsByTheirID.keySet());
 
                     map = splitAgain(job, newPoints, freeNodes, 0);
                     jobsForServentsByTheirID.put(k, map.get(position));//AppConfig.chordState.getValue(k)
-
                     map.remove(0);
 
+                    System.out.println("NEW MAP SIZE 1.5: " + jobsForServentsByTheirID.keySet());
+
                     for (int i = 1; i <= map.size(); i++) {
-                        jobsForServentsByTheirID.put(jobsForServentsByTheirID.size() + k, map.get(i));//AppConfig.chordState.getValue(jobsForServentsByTheirID.size())
+                        jobsForServentsByTheirID.put(jobsForServentsByTheirID.size() + h, map.get(i));//AppConfig.chordState.getValue(jobsForServentsByTheirID.size())
                     }
+
+                    System.out.println("NEW MAP SIZE 2: " + jobsForServentsByTheirID.keySet());
 
                     freeNodes -= n - 1;
                 }
@@ -193,7 +198,6 @@ public class JobSplit {
 
             int gg = i + position;
             map.put(gg, newPoints);//ID cvora i njegove kordinate za posao
-            System.out.println("PUT IN MAP IN SPLIT2: " + gg);
             freeNodes--;
         }
         return map;

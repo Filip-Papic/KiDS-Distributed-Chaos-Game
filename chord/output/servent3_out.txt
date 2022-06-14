@@ -1,47 +1,22 @@
-01:39:42 - Starting servent [24|192.168.56.1|1400]
-01:39:42 - Pausing for 15000 ms
-192.168.56.1:1300:3
-01:39:43 - Sending message [24|1400|0||NEW_NODE|1300|4]
-01:39:45 - Got message [28|1100|4||WELCOME|1400|24]
-01:39:46 - Sending message [24|1400|1||UPDATE|1100|28]
-01:39:49 - Got message [24|1400|3|1100,1200,1300|UPDATE|1400|24]
-01:39:57 - Pausing for 10000 ms
-01:39:58 - Got message [0|1600|5|1300|UPDATE|1400|24]
-01:39:59 - Sending message [0|1600|2|1300,1400|UPDATE|1100|28]
-01:40:06 - Got message [20|1700|6||NEW_NODE|1400|24]
-01:40:06 - Sending message [24|1400|3||WELCOME|1700|20]
-01:40:07 - Pausing for 30000 ms
-01:40:07 - Got message [20|1700|1||UPDATE|1400|24]
-01:40:08 - Sending message [20|1700|4|1400|UPDATE|1100|28]
-01:40:22 - Got message [40|1800|3|1200,1600,1300,1700|UPDATE|1400|24]
-01:40:23 - Sending message [40|1800|5|1200,1600,1300,1700,1400|UPDATE|1100|28]
-01:40:24 - Got message [20|1700|4|triangle|START|1400|24]
-IMA MOG POSLA
-[square, triangle_3, hexagon, triangle]
-Start: java.awt.Point[x=200,y=273]
-First: java.awt.Point[x=300,y=273]
-Current: java.awt.Point[x=250,y=273]
-JOB triangle_3 DONE
-01:40:25 - Sending message [24|1400|6|triangle_3|NEW_JOB_ADDED|1100|28]
-01:40:25 - Sending message [24|1400|7|triangle|START|1100|28]
-01:40:35 - Got message [20|1700|7|triangle_4|NEW_JOB_ADDED|1400|24]
-[square, triangle_4, triangle_3, hexagon, triangle]
-01:40:35 - Got message [20|1700|5|triangle_1|NEW_JOB_ADDED|1400|24]
-[square, triangle_1, triangle_4, triangle_3, hexagon, triangle]
-01:40:35 - Got message [20|1700|6|triangle_0|NEW_JOB_ADDED|1400|24]
-[square, triangle_1, triangle_0, triangle_4, triangle_3, hexagon, triangle]
-01:40:35 - Got message [20|1700|10|triangle_3|NEW_JOB_ADDED|1400|24]
-01:40:35 - Got message [20|1700|8|triangle_6|NEW_JOB_ADDED|1400|24]
-[square, triangle_1, triangle_0, triangle_6, triangle_4, triangle_3, hexagon, triangle]
-01:40:35 - Got message [20|1700|9|triangle_2|NEW_JOB_ADDED|1400|24]
-[triangle_2, square, triangle_1, triangle_0, triangle_6, triangle_4, triangle_3, hexagon, triangle]
-01:40:35 - Sending message [24|1400|8|triangle_4|NEW_JOB_ADDED|1100|28]
-01:40:36 - Sending message [24|1400|11|triangle_6|NEW_JOB_ADDED|1100|28]
-01:40:36 - Sending message [24|1400|10|triangle_0|NEW_JOB_ADDED|1100|28]
-01:40:36 - Sending message [24|1400|12|triangle_2|NEW_JOB_ADDED|1100|28]
-01:40:36 - Sending message [24|1400|9|triangle_1|NEW_JOB_ADDED|1100|28]
-RESULT : triangle
-Current available results: [triangle_2, square, triangle_1, triangle_0, triangle_6, triangle_4, triangle_3, hexagon, triangle] this job: triangle
-Created image: triangle
-01:40:38 - Pausing for 25000 ms
-01:41:03 - Stopping...
+14:07:37 - Starting servent [24|192.168.56.1|1400]
+14:07:37 - Pausing for 15000 ms
+192.168.56.1:1200:3
+14:07:38 - Sending message [24|1400|0||NEW_NODE|1200|48]
+14:07:41 - Got message [28|1100|4||WELCOME|1400|24]
+14:07:42 - Sending message [24|1400|1||UPDATE|1100|28]
+14:07:45 - Got message [24|1400|3|1100,1200,1300|UPDATE|1400|24]
+14:07:52 - Pausing for 10000 ms
+14:07:52 - Got message [0|1600|5|1300|UPDATE|1400|24]
+14:07:53 - Sending message [0|1600|2|1300,1400|UPDATE|1100|28]
+14:08:02 - Pausing for 30000 ms
+14:08:18 - Got message [4|1300|6|hexagon|START|1400|24]
+NEMA MOG POSLA
+14:08:19 - Sending message [24|1400|3|hexagon|START|1100|28]
+14:08:26 - Got message [4|1300|7|hexagon_0|NEW_JOB_ADDED|1400|24]
+[square, hexagon_0, hexagon, triangle]
+14:08:27 - Sending message [24|1400|4|hexagon_0|NEW_JOB_ADDED|1100|28]
+RESULT : hexagon
+Current available results: [square, hexagon_0, hexagon, triangle] this job: hexagon
+Created image: hexagon
+14:08:32 - Pausing for 25000 ms
+14:08:57 - Stopping...
